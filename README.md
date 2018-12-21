@@ -1,1 +1,3 @@
-# plum
+# Plum UI Kit for NativeScript
+
+Coming soon...

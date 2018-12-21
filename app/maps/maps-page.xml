@@ -1,0 +1,46 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:map="nativescript-mapbox">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+    <StackLayout>
+        <StackLayout class="form-header">
+			<Label class="lbl h2 m-t-5 m-b-5" text="Let's use a map" />
+		</StackLayout>
+		<ScrollView orientation="horizontal" class="form-content">
+			<StackLayout class="form" orientation="horizontal">
+				<Button class="btn btn-outline" text="Add markers" tap="{{ doAddMarkers }}" />
+				<Button class="btn btn-outline" text="Remove markers" tap="{{ doRemoveMarkers }}" />
+				<Button class="btn btn-outline" text="Zoom in" tap="{{ doZoomIn }}" />
+				<Button class="btn btn-outline" text="Zoom out" tap="{{ doZoomOut }}" />
+				<Button class="btn btn-outline" text="Find me" tap="{{ doFindMe }}" />
+			</StackLayout>
+		</ScrollView>
+		<ContentView height="100%" width="100%">
+			<!-- add your own accessToken! get a free one at mapbox.com! do it! -->
+			<map:MapboxView
+				accessToken="pk.eyJ1Ijoicm9ibGF1ZXIiLCJhIjoiY2pwd3QyZXpjMGQycTQycDkxcWZkdmJ0NCJ9.ku9waW-LzTClaMFrf6zcbw"
+				mapStyle="bright"
+				latitude="52.3702160"
+				longitude="4.8951680"
+				zoomLevel="{{ zoomLevel }}"
+				showUserLocation="true"
+				id="mymap">
+			</map:MapboxView>
+		</ContentView>
+    </StackLayout>
+</Page>

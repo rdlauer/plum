@@ -1,0 +1,203 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+/* Action bar*/
+.action-bar-title {
+  horizontal-align: center;
+  font-family: $muli-semibold;
+  color: $ab-color;
+}
+
+.action-bar {
+  background-color: $plum;
+}
+
+/* Button */
+.btn {
+  color: white;
+  background-color: $plum;
+  font-family: $muli-semibold;
+  font-size: 16;
+  border-radius: 3;
+}
+
+.btn-outline {
+  color: $plum;
+  background-color: transparent;
+}
+
+.btn-text-only {
+  color: $plum;
+}
+
+/* Custom Modal Dialog */
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dialogOpen .content,
+.dialogOpen .action-bar {
+  opacity: 0.2;
+}
+
+.dialogOpen .dialog-wrapper {
+  visibility: visible;
+  animation-name: show;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.dialog-wrapper {
+  visibility: collapse;
+  opacity: 0;
+}
+
+.dialog {
+  border-width: 1;
+  border-color: $plum-input-border;
+  background-color: white;
+  width: 100%;
+  margin-top: 150;
+  padding: 20;
+  border-radius: 3;
+}
+
+.dialog .dialog-label {
+  margin: 0 15 15 15;
+  color: $plum-text;
+  font-family: $muli-semibold;
+}
+
+.dialog .fa-icon-large {
+  color: $plum-icon-highlight;
+}
+
+/* Form */
+
+.form-header {
+  background-color: $plum-form-header-bg;
+  padding: 10;
+}
+
+.form-content {
+  background-color: $plum-form-content-bg;
+  padding: 10;
+}
+
+.form-input {
+  border-width: 1;
+  border-color: $plum-input-border;
+  background-color: $background-light;
+  padding: 10;
+  border-radius: 3;
+}
+
+.form-input-required {
+  border-color: $error-light;
+}
+
+/* Label */
+
+.lbl {
+  color: $plum-text;
+  font-family: $muli-semibold;
+}
+
+.lbl-light {
+  color: $plum-text-light;
+  font-size: 15;
+}
+
+.lbl-form-required {
+  color: $error-light;
+  font-size: 12;
+}
+
+/* List */
+
+.list-card {
+  width: 95%;
+  background-color: white;
+}
+
+.list-divider {
+  background-color: $background-light;
+}
+
+.list-avatar {
+  border-radius: 50%;
+}
+
+.list-info {
+  padding: 15;
+  font-family: $muli-semibold;
+  color: $plum-text;
+}
+
+.list-info .name {
+  font-size: 16;
+}
+
+.list-info .rating {
+  font-size: 14;
+}
+
+.list-info .title {
+  font-size: 14;
+  color: $plum-text-light;
+}
+
+.list-info-desc {
+  font-size: 14;
+}
+
+/* Search */
+
+.search-bar {
+  font-family: $muli-semibold;
+}
+
+/* Misc */
+
+.logo {
+  margin-top: 60;
+  margin-bottom: 30;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+.plum-text {
+  font-family: $muli-semibold;
+}
+
+.fa {
+  font-family: 'FontAwesome';
+}
+
+.fa-icon-large {
+  font-size: 80;
+  color: $plum-text-light;
+}
+
+.fa-icon-filter {
+  font-size: 26;
+  margin-top: -10;
+}
+
+.fa-list-star {
+  color: #ffa300;
+}
+
+.fa-list-heart {
+  color: #f82773;
+  vertical-align: top;
+  padding-top: 20;
+}

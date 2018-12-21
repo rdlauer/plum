@@ -1,0 +1,14 @@
+<Page
+    class="page"
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	shownModally="onShownModally">
+
+	<StackLayout class="p-20">
+		<Label class="lbl h2 text-center" text="Referral Code" textWrap="true" />
+		<Label class="lbl m-t-10 m-b-20" text="If you have a referral code, please enter it here." textWrap="true" />
+		<TextField class="form-input m-b-20" keyboardType="number" width="50%" />
+        <Button class="btn btn-primary" text="Submit" tap="submit"></Button>
+		<Button class="btn btn-outline" text="Close" tap="close"></Button>
+	</StackLayout>
+
+</Page>

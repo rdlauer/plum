@@ -1,0 +1,88 @@
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+-->
+<nsDrawer:RadSideDrawer id="sideDrawer" xmlns:nsDrawer="nativescript-ui-sidedrawer" loaded="onLoaded">
+    <nsDrawer:RadSideDrawer.drawerTransition>
+        <nsDrawer:PushTransition/>
+    </nsDrawer:RadSideDrawer.drawerTransition>
+
+    <nsDrawer:RadSideDrawer.drawerContent>
+        <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left">
+            <StackLayout class="sidedrawer-header">
+				<Image class="pull-left" width="20%" src="~/images/plum-white.png" />
+                <Label class="sidedrawer-header-brand m-t-10 m-b-10" text="Plum UI for {N}" />
+            </StackLayout>
+
+            <ScrollView row="1">
+                <StackLayout class="sidedrawer-content">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Login' ? ' selected': '') }}"
+                        route="home/home-page" title="Login" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf015;" class="fa" />
+                        <Label row="0" col="1" text="Login" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Sign Up' ? ' selected': '') }}"
+                        route="sign-up/sign-up-page" title="Sign Up" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf040;" class="fa" />
+                        <Label row="0" col="1" text="Sign Up" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Profile' ? ' selected': '') }}"
+                        route="profile/profile-page" title="Profile" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf2bd;" class="fa" />
+                        <Label row="0" col="1" text="Profile" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Maps' ? ' selected': '') }}"
+                        route="maps/maps-page" title="Maps" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf041;" class="fa" />
+                        <Label row="0" col="1" text="Maps" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Lists' ? ' selected': '') }}"
+                        route="lists/lists-page" title="Lists" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf03a;" class="fa" />
+                        <Label row="0" col="1" text="Master/Detail List" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Calendar' ? ' selected': '') }}"
+                        route="maps/maps-page" title="Calendar" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf073;" class="fa" />
+                        <Label row="0" col="1" text="Calendar" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Inbox' ? ' selected': '') }}"
+                        route="maps/maps-page" title="Inbox" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf01c;" class="fa" />
+                        <Label row="0" col="1" text="Inbox" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Charts' ? ' selected': '') }}"
+                        route="maps/maps-page" title="Charts" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf080;" class="fa" />
+                        <Label row="0" col="1" text="Charts" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Carousel' ? ' selected': '') }}"
+                        route="maps/maps-page" title="Carousel" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf021;" class="fa" />
+                        <Label row="0" col="1" text="Carousel" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'AudioVideo' ? ' selected': '') }}"
+                        route="maps/maps-page" title="AudioVideo" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf1c7;" class="fa" />
+                        <Label row="0" col="1" text="Play Audio/Video" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </GridLayout>
+    </nsDrawer:RadSideDrawer.drawerContent>
+
+    <nsDrawer:RadSideDrawer.mainContent>
+        <Frame defaultPage="home/home-page"></Frame>
+    </nsDrawer:RadSideDrawer.mainContent>
+</nsDrawer:RadSideDrawer>

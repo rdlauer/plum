@@ -1,0 +1,64 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:CheckBox="nativescript-checkbox">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+	<GridLayout>
+		<StackLayout class="content">
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Let us know more about you" />
+			</StackLayout>
+			<ScrollView>
+				<StackLayout class="form form-content">
+					<Label text="&#xf2be;" class="fa fa-icon-large text-center" 
+						visibility="{{ isSingleMode ? 'collapsed' : 'visible' }}" />
+					<Image src="{{ imageSrc }}" class="profile-pic" 
+						visibility="{{ isSingleMode ? 'visible' : 'collapsed' }}" 
+						width="{{ previewSize }}" height="{{ previewSize }}" stretch="none" />
+					<Button class="btn-text-only" text="Add Photo" tap="{{ onSelectSingleTap }}" />
+					<Label class="lbl lbl-light m-t-5" text="Your Name" />
+					<TextField class="form-input m-t-10" hint="first" autocorrect="false" 
+						autocapitalizationType="none" returnKeyType="next" />
+					<TextField class="form-input m-t-5" hint="last" autocorrect="false" 
+						autocapitalizationType="none" id="confirmPassword" />
+					<Label class="lbl lbl-light m-t-20" text="Date of Birth" />
+					<DatePicker class="form-input m-t-10" returnKeyType="next" />
+					<Label class="lbl lbl-light m-t-20" text="Gender" />
+					<StackLayout orientation="horizontal" class="m-b-20" height="50">
+						<Button class="btn btn-outline" text="Male" id="genderMale"
+							tap="{{ genderMale }}" width="40%" />
+						<Button class="btn btn-outline" text="Female" id="genderFemale" 
+							tap="{{ genderFemale }}" width="40%" />
+					</StackLayout>
+					<CheckBox:CheckBox text=" I would like to get annoying notifications" 
+						checked="true" fillColor="#4f5fe7" onCheckColor="white" 
+						color="#2e2e2e"  boxType="circle" class="m-b-20" />
+					<Button class="btn btn-primary" text="Complete Profile" tap="{{ showDialog }}" />
+				</StackLayout>
+			</ScrollView>
+		</StackLayout>
+		<AbsoluteLayout class="dialog-wrapper">
+			<StackLayout class="dialog">
+				<Label text="&#xf058;" class="fa fa-icon-large m-b-10 text-center" />
+				<Label class="h2 text-center dialog-label" text="Your profile is updated." />
+				<Label class="text-center dialog-label" text="Let's do some more fun stuff!" />
+				<Button class="btn btn-primary" text="Close" tap="{{ closeDialog }}" />
+			</StackLayout>
+		</AbsoluteLayout>
+	</GridLayout>
+
+</Page>
