@@ -1,17 +1,17 @@
 <Page
     class="page"
-    navigatingTo="onNavigatingTo"  
+    navigatingTo="onNavigatingTo"
     xmlns="http://schemas.nativescript.org/tns.xsd"
-	xmlns:lv="nativescript-ui-listview" 
+	xmlns:lv="nativescript-ui-listview"
 	xmlns:f="nativescript-fresco">
 
     <ActionBar class="action-bar">
-        <NavigationButton icon="res://menu" 
-			ios:visibility="collapsed"		
+        <NavigationButton icon="res://menu"
+			ios:visibility="collapsed"
 			tap="onDrawerButtonTap">
 		</NavigationButton>
-        <ActionItem icon="res://navigation/menu" 
-            android:visibility="collapsed" 
+        <ActionItem icon="res://navigation/menu"
+            android:visibility="collapsed"
             tap="onDrawerButtonTap"
             ios.position="left">
         </ActionItem>
@@ -28,11 +28,11 @@
 					class="search-bar m-b-10" submit="{{ onSearchSubmit }}" clear="{{ clear }}" row="0" col="0" />
 				<Label text="&#xf1de;" class="fa fa-icon-filter" row="0" col="1" />
 			</GridLayout>
-			<lv:RadListView id="list-view" items="{{ people }}" height="100%" >
+			<lv:RadListView id="list-view" items="{{ people }}" height="100%">
 				<lv:RadListView.itemTemplate>
 					<StackLayout>
 						<StackLayout class="list-card m-x-auto" orientation="horizontal">
-							<GridLayout rows="auto, auto" columns="60, 260" tap="{{ $parents['RadListView'].itemDetail,  $parents['RadListView'].itemDetail }}">
+							<GridLayout rows="auto, auto" columns="60, 260" tap="{{ $parents['RadListView'].itemDetail }}">
 								<ios>
 									<Image src="{{ imageSrc }}" stretch="aspectFill" height="50" width="50" class="list-avatar" row="0" col="0" />
 								</ios>
@@ -50,12 +50,7 @@
 								</StackLayout>
 								<Label text="{{ description }}" row="1" col="0" colSpan="2" class="list-info-desc" textWrap="true" />
 							</GridLayout>
-							<Label tap="{{ itemFavorite }}" 
-								text="&#xf004;" class="fa fa-list-heart" 
-								visibility="{{ isFavorite ? 'visible' : 'collapsed' }}" />
-							<Label tap="{{ itemFavorite }}" 
-								text="&#xf08a;" class="fa fa-list-heart" 
-								visibility="{{ isFavorite ? 'collapsed' : 'visible' }}" />
+							<Label tap="{{ $parents['RadListView'].itemFavorite }}" id="{{ id }}" text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart" />
 						</StackLayout>
 						<StackLayout class="list-divider" height="10"></StackLayout>
 					</StackLayout>

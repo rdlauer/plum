@@ -1,15 +1,28 @@
 import { Observable, PropertyChangeData } from 'data/observable';
+import { RadListView } from "nativescript-ui-listview";
 import { ObservableProperty } from '../observable-property-decorator';
-import { SearchBar } from 'ui/search-bar';
+import { SearchBar } from 'tns-core-modules/ui/search-bar';
 import { isIOS } from 'tns-core-modules/platform';
 import { EventData } from 'tns-core-modules/data/observable';
 import { Label } from 'tns-core-modules/ui/label';
 import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout';
 
 declare const IQKeyboardManager: any;
-const topmost = require('ui/frame').topmost;
+const topmost = require('tns-core-modules/ui/frame').topmost;
 
 import { SelectedPageService } from '../shared/selected-page-service';
+
+interface Person {
+  id: number;
+  name: string;
+  title: string;
+  imageSrc: string;
+  payRate: number;
+  rating: number;
+  reviews: number;
+  isFavorite: boolean;
+  description: string;
+}
 
 export class ListsViewModel extends Observable {
   constructor() {
@@ -33,17 +46,7 @@ export class ListsViewModel extends Observable {
 
   @ObservableProperty() searchPhrase: string;
 
-  allPeople: {
-    id: number;
-    name: string;
-    title: string;
-    imageSrc: string;
-    payRate: number;
-    rating: number;
-    reviews: number;
-    isFavorite: boolean;
-    description: string;
-  }[] = [
+  allPeople: Array<Person> = [
     {
       id: 1,
       name: 'Jane McDonald',
@@ -197,11 +200,7 @@ export class ListsViewModel extends Observable {
   _refilter() {
     let f = this.searchPhrase.trim().toLowerCase();
 
-    this.people = this.allPeople.filter(function(e) {
-      return (
-        e.name.toLowerCase().includes(f) || e.title.toLowerCase().includes(f)
-      );
-    });
+    this.people = this.allPeople.filter((e) => e.name.toLowerCase().includes(f) || e.title.toLowerCase().includes(f));
 
     this.set('people', this.people.slice(0));
   }
@@ -251,27 +250,18 @@ export class ListsViewModel extends Observable {
   totalFavorites = 0;
 
   itemFavorite(args: EventData) {
+    const page = topmost().currentPage;
+    let listView = <RadListView>page.getViewById('list-view');
+
     const tappedLabel = <Label>args.object;
     let id = parseInt(tappedLabel.parent.bindingContext.id);
 
-    // let _people = this.people; <-- can't access variables outside the scope of this function!?
-    let _people = tappedLabel.page.bindingContext.allPeople;
-    const index = _people.findIndex(item => item.id === id);
+    let _people = <Array<Person>>listView.items;
+    const person = _people.filter(p => p.id === id)[0];
 
-    if (_people[index].isFavorite) {
-      _people[index].isFavorite = false;
-      this.totalFavorites = this.totalFavorites - 1;
-    } else {
-      _people[index].isFavorite = true;
-      this.totalFavorites = this.totalFavorites + 1;
-    }
+    person.isFavorite = !person.isFavorite;
+    this.totalFavorites = _people.filter(p => p.isFavorite).length;
 
-    console.log(_people);
-
-    // this.set('people', _people);
-
-    // const page = topmost().currentPage;
-    // let listView = page.getViewById('list-view');
-    // listView.refresh();
+    listView.refresh();
   }
 }
