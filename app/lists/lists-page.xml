@@ -3,59 +3,105 @@
     navigatingTo="onNavigatingTo"
     xmlns="http://schemas.nativescript.org/tns.xsd"
 	xmlns:lv="nativescript-ui-listview"
-	xmlns:f="nativescript-fresco">
+	xmlns:f="nativescript-fresco"
+	xmlns:dd="nativescript-drop-down">
 
     <ActionBar class="action-bar">
         <NavigationButton icon="res://menu"
 			ios:visibility="collapsed"
 			tap="onDrawerButtonTap">
 		</NavigationButton>
-        <ActionItem icon="res://navigation/menu"
-            android:visibility="collapsed"
-            tap="onDrawerButtonTap"
-            ios.position="left">
-        </ActionItem>
+		<ActionBar.actionItems>
+			<ActionItem icon="res://navigation/menu"
+				android:visibility="collapsed"
+				tap="onDrawerButtonTap"
+				ios.position="left">
+			</ActionItem>
+			<ActionItem ios.position="right">
+				<ActionItem.actionView>
+					<StackLayout orientation="horizontal" paddingTop="-6" paddingRight="-10">
+						<Label id="heartLabel" text="0" class="plum-text ab-heart-label" />
+						<Label text="&#xf004;" class="fa ab-fa-list-heart" />
+					</StackLayout>
+				</ActionItem.actionView>
+			</ActionItem>
+		</ActionBar.actionItems>
         <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
     </ActionBar>
 
-    <StackLayout>
-        <StackLayout class="form-header">
-			<Label class="lbl h2 m-t-5 m-b-5" text="Search and filter lists of data" />
-		</StackLayout>
-		<StackLayout class="form form-content">
-			<GridLayout rows="auto" columns="*, auto">
-				<SearchBar hint="Search..." text="{{ searchPhrase }}" loaded="onSearchLoaded"
-					class="search-bar m-b-10" submit="{{ onSearchSubmit }}" clear="{{ clear }}" row="0" col="0" />
-				<Label text="&#xf1de;" class="fa fa-icon-filter" row="0" col="1" />
-			</GridLayout>
-			<lv:RadListView id="list-view" items="{{ people }}" height="100%">
-				<lv:RadListView.itemTemplate>
-					<StackLayout>
-						<StackLayout class="list-card m-x-auto" orientation="horizontal">
-							<GridLayout rows="auto, auto" columns="60, 260" tap="{{ $parents['RadListView'].itemDetail }}">
-								<ios>
-									<Image src="{{ imageSrc }}" stretch="aspectFill" height="50" width="50" class="list-avatar" row="0" col="0" />
-								</ios>
-								<android>
-									<f:FrescoDrawee horizontalAlignment="stretch" height="30" width="30" imageUri="{{ imageSrc }}" row="0" col="0"  />
-								</android>
-								<StackLayout class="list-info" row="0" col="1">
-									<Label text="{{ name }}" class="name" />
-									<StackLayout orientation="horizontal">
-										<Label text="{{ rating }}" class="rating m-r-5" />
-										<Label text="&#xf005;" class="fa fa-list-star" />
-										<Label text="{{ ' (' + reviews + ')' }}" class="rating" />
+    <GridLayout>
+        <StackLayout class="content">
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Search and filter lists of data" />
+			</StackLayout>
+			<StackLayout class="form form-content">
+				<GridLayout rows="auto" columns="*, auto">
+					<SearchBar hint="Search..." text="{{ searchPhrase }}" loaded="onSearchLoaded"
+						class="search-bar m-b-10" submit="{{ onSearchSubmit }}" clear="{{ clear }}" row="0" col="0" />
+					<Label text="&#xf1de;" class="fa fa-icon-filter" row="0" col="1" tap="{{ showDialog }}" />
+				</GridLayout>
+				<lv:RadListView id="list-view" items="{{ people }}" height="100%">
+					<lv:RadListView.itemTemplate>
+						<StackLayout>
+							<StackLayout class="list-card m-x-auto" orientation="horizontal">
+								<GridLayout rows="auto, auto" columns="60, 260" tap="{{ $parents['RadListView'].itemDetail }}">
+									<ios>
+										<Image src="{{ imageSrc }}" stretch="aspectFill" height="50" width="50" class="list-avatar" row="0" col="0" />
+									</ios>
+									<android>
+										<f:FrescoDrawee horizontalAlignment="stretch" height="50" width="50" imageUri="{{ imageSrc }}" row="0" col="0"  />
+									</android>
+									<StackLayout class="list-info" row="0" col="1">
+										<Label text="{{ name }}" class="name" />
+										<StackLayout orientation="horizontal">
+											<Label text="{{ rating }}" class="rating m-r-5" />
+											<Label text="&#xf005;" class="fa fa-list-star" />
+											<Label text="{{ ' (' + reviews + ')' }}" class="rating" />
+										</StackLayout>
+										<Label text="{{ '$' + payRate + '/hr · ' + title }}" class="title" />
 									</StackLayout>
-									<Label text="{{ '$' + payRate + '/hr · ' + title }}" class="title" />
-								</StackLayout>
-								<Label text="{{ description }}" row="1" col="0" colSpan="2" class="list-info-desc" textWrap="true" />
-							</GridLayout>
-							<Label tap="{{ $parents['RadListView'].itemFavorite }}" id="{{ id }}" text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart" />
+									<Label text="{{ description }}" row="1" col="0" colSpan="2" class="list-info-desc" textWrap="true" />
+								</GridLayout>
+								<Label tap="{{ $parents['RadListView'].itemFavorite }}" id="{{ id }}" text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart" />
+							</StackLayout>
+							<StackLayout class="list-divider" height="10"></StackLayout>
 						</StackLayout>
-						<StackLayout class="list-divider" height="10"></StackLayout>
-					</StackLayout>
-				</lv:RadListView.itemTemplate>
-			</lv:RadListView>
+					</lv:RadListView.itemTemplate>
+				</lv:RadListView>
+			</StackLayout>
 		</StackLayout>
-    </StackLayout>
+		<AbsoluteLayout class="dialog-wrapper">
+			<StackLayout class="dialog">
+				<Label text="&#xf1de;" class="fa fa-icon-large m-b-10 text-center" />
+				<Label class="h2 text-center dialog-label" text="Filters" />
+				<StackLayout class="form form-content m-t-10">
+					<StackLayout class="form-content" orientation="horizontal">
+						<Label class="lbl lbl-light" text="Hourly Rate < " />
+						<Label class="lbl lbl-light" text="{{ '$' + rate }}" />
+					</StackLayout>
+					<GridLayout class="form-content form-content-block" rows="auto" columns="auto, *, auto">
+						<Label class="lbl lbl-light" text="$0" row="0" col="0" />
+						<Slider loaded="{{ onSliderLoaded }}" value="{{ slider }}" minValue="0" 		
+							maxValue="200" row="0" col="1" class="slider" />
+						<Label class="lbl lbl-light" text="$200" row="0" col="2" />
+					</GridLayout>
+					<StackLayout class="form-content m-t-10" orientation="horizontal">
+						<Label class="lbl lbl-light" text="Favorites" />
+					</StackLayout>
+					<GridLayout class="form-content form-content-block" rows="auto" columns="auto, *">
+						<Label class="lbl lbl-light" text="Only show favorites" row="0" col="0" />
+						<Switch checked="{{ favorites }}" row="0" col="1" class="switch" id="favSwitch" />
+					</GridLayout>
+					<StackLayout class="form-content m-t-10" orientation="horizontal">
+						<Label class="lbl lbl-light" text="Job Title" />
+					</StackLayout>
+					<StackLayout class="form-content form-content-block">
+						<dd:DropDown selectedIndexChanged="{{ ddSelectedIndexChanged }}"
+							items="{{ itemSource }}" selectedIndex="{{ titleIndex }}" />
+					</StackLayout>
+				</StackLayout>
+				<Button class="btn btn-primary" text="Close" tap="{{ closeDialog }}" />
+			</StackLayout>
+		</AbsoluteLayout>
+    </GridLayout>
 </Page>

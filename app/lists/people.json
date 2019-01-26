@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Jane McDonald",
+    "title": "Developer Advocate",
+    "imageSrc": "https://placem.at/people?random=11&w=500&txt=0",
+    "payRate": 100,
+    "rating": 4.5,
+    "reviews": 20,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 2,
+    "name": "Steven Philips",
+    "title": "Social Media Coordinator",
+    "imageSrc": "https://placem.at/people?random=2&w=500&txt=0",
+    "payRate": 120,
+    "rating": 3.9,
+    "reviews": 46,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 3,
+    "name": "Mary Landow",
+    "title": "Product Marketing Manager",
+    "imageSrc": "https://placem.at/people?random=3&w=500&txt=0",
+    "payRate": 150,
+    "rating": 4.7,
+    "reviews": 30,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 4,
+    "name": "Sam",
+    "title": "Company Dog",
+    "imageSrc": "https://placem.at/people?random=4&w=500&txt=0",
+    "payRate": 10,
+    "rating": 4.9,
+    "reviews": 98,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 5,
+    "name": "Abby Keefer",
+    "title": "Customer Success Manager",
+    "imageSrc": "https://placem.at/people?random=5&w=500&txt=0",
+    "payRate": 99,
+    "rating": 4.9,
+    "reviews": 47,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 6,
+    "name": "Michelle Rodgers",
+    "title": "VP Engineering",
+    "imageSrc": "https://placem.at/people?random=6&w=500&txt=0",
+    "payRate": 55,
+    "rating": 2.5,
+    "reviews": 7,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 7,
+    "name": "Lucy Gold",
+    "title": "Marketing Intern",
+    "imageSrc": "https://placem.at/people?random=77&w=500&txt=0",
+    "payRate": 170,
+    "rating": 4.2,
+    "reviews": 90,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 8,
+    "name": "Jerry Kramer",
+    "title": "Senior Engineer",
+    "imageSrc": "https://placem.at/people?random=99&w=500&txt=0",
+    "payRate": 140,
+    "rating": 4.7,
+    "reviews": 25,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 9,
+    "name": "Kelna Cuevas",
+    "title": "Principal Product Manager",
+    "imageSrc": "https://placem.at/people?random=55&w=500&txt=0",
+    "payRate": 100,
+    "rating": 2.7,
+    "reviews": 3,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 10,
+    "name": "Sierra Riley",
+    "title": "Sales Coordinator",
+    "imageSrc": "https://placem.at/people?random=44&w=500&txt=0",
+    "payRate": 95,
+    "rating": 4.2,
+    "reviews": 18,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 11,
+    "name": "Lilly Morris",
+    "title": "Engineering Intern",
+    "imageSrc": "https://placem.at/people?random=123&w=500&txt=0",
+    "payRate": 180,
+    "rating": 4.9,
+    "reviews": 54,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 12,
+    "name": "Ariel Rhodes",
+    "title": "Customer Success Manager",
+    "imageSrc": "https://placem.at/people?random=33&w=500&txt=0",
+    "payRate": 120,
+    "rating": 3.2,
+    "reviews": 10,
+    "isFavorite": false,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]

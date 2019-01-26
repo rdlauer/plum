@@ -42,7 +42,8 @@
 }
 
 .dialogOpen .content,
-.dialogOpen .action-bar {
+.dialogOpen .action-bar,
+.dialogOpen .action-bar-title {
   opacity: 0.2;
 }
 
@@ -56,6 +57,7 @@
 .dialog-wrapper {
   visibility: collapse;
   opacity: 0;
+  width: 330;
 }
 
 .dialog {
@@ -63,7 +65,7 @@
   border-color: $plum-input-border;
   background-color: white;
   width: 100%;
-  margin-top: 150;
+  margin-top: 10;
   padding: 20;
   border-radius: 3;
 }
@@ -90,6 +92,14 @@
   padding: 10;
 }
 
+.form-content-block {
+  border-width: 1;
+  border-radius: 3;
+  border-color: $plum-input-border;
+  background-color: white;
+  width: 90%;
+}
+
 .form-input {
   border-width: 1;
   border-color: $plum-input-border;
@@ -112,6 +122,10 @@
 .lbl-light {
   color: $plum-text-light;
   font-size: 15;
+}
+
+.lbl-bold {
+  font-weight: bold;
 }
 
 .lbl-form-required {
@@ -163,6 +177,18 @@
   font-family: $muli-semibold;
 }
 
+/* Slider */
+
+.slider {
+  background-color: $plum;
+}
+
+/* Switch */
+
+.switch {
+  background-color: $plum;
+}
+
 /* Misc */
 
 .logo {
@@ -187,6 +213,11 @@
   color: $plum-text-light;
 }
 
+.fa-icon-medium {
+  font-size: 22;
+  color: $plum-text-light;
+}
+
 .fa-icon-filter {
   font-size: 26;
   margin-top: -10;
@@ -197,7 +228,16 @@
 }
 
 .fa-list-heart {
-  color: #f82773;
+  color: $plum-heart;
   vertical-align: top;
   padding-top: 20;
+}
+
+.ab-fa-list-heart {
+  color: $plum-heart;
+}
+
+.ab-heart-label {
+  color: white;
+  margin-right: 5;
 }

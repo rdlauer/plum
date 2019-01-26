@@ -1,5 +1,5 @@
 import { Observable } from 'tns-core-modules/data/observable';
-const topmost = require('ui/frame').topmost;
+const topmost = require('tns-core-modules/ui/frame').topmost;
 
 import { SelectedPageService } from '../shared/selected-page-service';
 

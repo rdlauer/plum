@@ -1,0 +1,67 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:calendar="nativescript-ui-calendar">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+    <StackLayout>
+        <calendar:RadCalendar eventSource="{{ events }}" eventsViewMode="Inline">
+
+			<calendar:RadCalendar.monthViewStyle>
+				<calendar:CalendarMonthViewStyle showTitle="true" 
+					showWeekNumbers="false" showDayNames="true" selectionShape="circle" selectionShapeColor="#4f5fe7">
+
+					<calendar:CalendarMonthViewStyle.titleCellStyle>
+						<calendar:CellStyle cellBackgroundColor="#f8f8f8" cellBorderWidth="0" cellTextColor="#2e2e2e" cellTextFontName="Muli SemiBold" cellTextFontStyle="Bold" cellTextSize="18" />
+					</calendar:CalendarMonthViewStyle.titleCellStyle>
+
+					<calendar:CalendarMonthViewStyle.todayCellStyle>
+						<calendar:DayCellStyle cellBackgroundColor="#4f5fe7" cellBorderWidth="4" cellBorderColor="#2e2e2e" cellTextColor="#ffffff" cellTextFontName="Muli SemiBold" cellTextFontStyle="Bold" cellTextSize="14" />
+					</calendar:CalendarMonthViewStyle.todayCellStyle>
+
+					<calendar:CalendarMonthViewStyle.weekendCellStyle>
+						<calendar:DayCellStyle 
+							eventTextColor="red" eventFontName="Muli SemiBold" eventFontStyle="BoldItalic" eventTextSize="8" cellBackgroundColor="#dddddd" 
+							cellBorderWidth="0.5" cellBorderColor="#999999" cellTextColor="#2e2e2e" cellTextFontName="Muli SemiBold" cellTextFontStyle="Bold" cellTextSize="16" />
+					</calendar:CalendarMonthViewStyle.weekendCellStyle>
+
+					<calendar:CalendarMonthViewStyle.dayCellStyle>
+						<calendar:DayCellStyle
+							showEventsText="true" eventTextColor="White" eventFontName="Muli SemiBold" eventFontStyle="BoldItalic" eventTextSize="8" cellBackgroundColor="#f8f8f8"
+							cellBorderWidth="0.5" cellBorderColor="#999999" cellTextColor="#2e2e2e" cellTextFontName="Muli SemiBold" cellTextFontStyle="Bold" cellTextSize="16" />
+					</calendar:CalendarMonthViewStyle.dayCellStyle>
+
+					<calendar:CalendarMonthViewStyle.dayNameCellStyle>
+						<calendar:CellStyle cellBackgroundColor="#4f5fe7" cellBorderWidth="0" cellBorderColor="#4f5fe7" cellTextColor="#ffffff" cellTextFontName="Muli SemiBold" cellTextFontStyle="Bold" cellTextSize="10" />
+					</calendar:CalendarMonthViewStyle.dayNameCellStyle>
+
+					<calendar:CalendarMonthViewStyle.selectedDayCellStyle>
+						<calendar:DayCellStyle
+						eventTextColor="Red" eventFontName="Muli SemiBold" eventFontStyle="Bold" eventTextSize="8"
+						cellBackgroundColor="#f8f8f8" cellBorderWidth="1" cellBorderColor="#4f5fe7" cellTextColor="#ffffff" cellTextFontName="Muli SemiBold" cellTextFontStyle="Bold" cellTextSize="16" />
+					</calendar:CalendarMonthViewStyle.selectedDayCellStyle>
+
+					<calendar:CalendarMonthviewStyle.inlineEventCellStyle>
+						<calendar:InlineEventCellStyle cellBackgroundColor="#4f5fe7" eventTextColor="#ffffff" eventFontName="Muli SemiBold" eventFontStyle="BoldItalic" eventTextSize="14" 
+						timeTextColor="#f8f8f8" timeFontName="Muli SemiBold" timeFontStyle="Regular" timeTextSize="14"/>
+					</calendar:CalendarMonthviewStyle.inlineEventCellStyle>
+
+				</calendar:CalendarMonthViewStyle>
+			</calendar:RadCalendar.monthViewStyle>
+
+		</calendar:RadCalendar>
+    </StackLayout>
+</Page>

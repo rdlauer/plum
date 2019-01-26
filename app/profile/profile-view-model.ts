@@ -2,7 +2,7 @@ import { Observable } from 'tns-core-modules/data/observable';
 import * as imagepicker from 'nativescript-imagepicker';
 import { ItemEventData } from 'tns-core-modules/ui/list-view';
 import { Label } from 'tns-core-modules/ui/label';
-const topmost = require('ui/frame').topmost;
+const topmost = require('tns-core-modules/ui/frame').topmost;
 
 import { SelectedPageService } from '../shared/selected-page-service';
 

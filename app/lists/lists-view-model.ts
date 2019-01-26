@@ -1,11 +1,17 @@
-import { Observable, PropertyChangeData } from 'data/observable';
-import { RadListView } from "nativescript-ui-listview";
+import {
+  Observable,
+  PropertyChangeData
+} from 'tns-core-modules/data/observable';
+import { RadListView } from 'nativescript-ui-listview';
 import { ObservableProperty } from '../observable-property-decorator';
 import { SearchBar } from 'tns-core-modules/ui/search-bar';
 import { isIOS } from 'tns-core-modules/platform';
 import { EventData } from 'tns-core-modules/data/observable';
 import { Label } from 'tns-core-modules/ui/label';
 import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout';
+import { ValueList } from 'nativescript-drop-down';
+import { Slider } from 'tns-core-modules/ui/slider';
+import { SelectedIndexChangedEventData } from 'nativescript-drop-down';
 
 declare const IQKeyboardManager: any;
 const topmost = require('tns-core-modules/ui/frame').topmost;
@@ -34,6 +40,12 @@ export class ListsViewModel extends Observable {
       (propertyChangeData: PropertyChangeData) => {
         if (propertyChangeData.propertyName == 'searchPhrase') {
           this._refilter();
+        } else if (
+          propertyChangeData.propertyName == 'slider' ||
+          propertyChangeData.propertyName == 'favorites' ||
+          propertyChangeData.propertyName == 'titleIndex'
+        ) {
+          this._otherfilters();
         }
       }
     );
@@ -44,163 +56,35 @@ export class ListsViewModel extends Observable {
     }
   }
 
+  showDialog() {
+    const page = topmost().currentPage;
+    page.className = 'page dialogOpen';
+  }
+
+  closeDialog() {
+    const page = topmost().currentPage;
+    page.className = 'page';
+  }
+
   @ObservableProperty() searchPhrase: string;
 
-  allPeople: Array<Person> = [
-    {
-      id: 1,
-      name: 'Jane McDonald',
-      title: 'Developer Advocate',
-      imageSrc: 'https://placem.at/people?random=11&w=500&txt=0',
-      payRate: 100,
-      rating: 4.5,
-      reviews: 20,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 2,
-      name: 'Steven Philips',
-      title: 'Social Media Coordinator',
-      imageSrc: 'https://placem.at/people?random=2&w=500&txt=0',
-      payRate: 120,
-      rating: 3.9,
-      reviews: 46,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 3,
-      name: 'Mary Landow',
-      title: 'Product Marketing Manager',
-      imageSrc: 'https://placem.at/people?random=3&w=500&txt=0',
-      payRate: 150,
-      rating: 4.7,
-      reviews: 30,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 4,
-      name: 'Sam',
-      title: 'Company Dog',
-      imageSrc: 'https://placem.at/people?random=4&w=500&txt=0',
-      payRate: 10,
-      rating: 4.9,
-      reviews: 98,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 5,
-      name: 'Abby Keefer',
-      title: 'Customer Success Manager',
-      imageSrc: 'https://placem.at/people?random=5&w=500&txt=0',
-      payRate: 99,
-      rating: 4.9,
-      reviews: 47,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 6,
-      name: 'Michelle Rodgers',
-      title: 'VP Engineering',
-      imageSrc: 'https://placem.at/people?random=6&w=500&txt=0',
-      payRate: 55,
-      rating: 2.5,
-      reviews: 7,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 7,
-      name: 'Lucy Gold',
-      title: 'Marketing Intern',
-      imageSrc: 'https://placem.at/people?random=77&w=500&txt=0',
-      payRate: 170,
-      rating: 4.2,
-      reviews: 90,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 8,
-      name: 'Jerry Kramer',
-      title: 'Senior Engineer',
-      imageSrc: 'https://placem.at/people?random=99&w=500&txt=0',
-      payRate: 140,
-      rating: 4.7,
-      reviews: 25,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 9,
-      name: 'Kelna Cuevas',
-      title: 'Principal Product Manager',
-      imageSrc: 'https://placem.at/people?random=55&w=500&txt=0',
-      payRate: 100,
-      rating: 2.7,
-      reviews: 3,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 10,
-      name: 'Sierra Riley',
-      title: 'Sales Coordinator',
-      imageSrc: 'https://placem.at/people?random=44&w=500&txt=0',
-      payRate: 95,
-      rating: 4.2,
-      reviews: 18,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 11,
-      name: 'Lilly Morris',
-      title: 'Engineering Intern',
-      imageSrc: 'https://placem.at/people?random=123&w=500&txt=0',
-      payRate: 180,
-      rating: 4.9,
-      reviews: 54,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 12,
-      name: 'Ariel Rhodes',
-      title: 'Customer Success Manager',
-      imageSrc: 'https://placem.at/people?random=33&w=500&txt=0',
-      payRate: 120,
-      rating: 3.2,
-      reviews: 10,
-      isFavorite: false,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    }
-  ];
+  allPeople: Array<Person> = require('./people.json');
 
-  // search/filter
+  // *************
+  // begin search
+  // *************
 
   people = this.allPeople;
 
   _refilter() {
     let f = this.searchPhrase.trim().toLowerCase();
 
-    this.people = this.allPeople.filter((e) => e.name.toLowerCase().includes(f) || e.title.toLowerCase().includes(f));
+    this.people = this.allPeople.filter(
+      e =>
+        e.name.toLowerCase().includes(f) ||
+        e.title.toLowerCase().includes(f) ||
+        e.description.toLowerCase().includes(f)
+    );
 
     this.set('people', this.people.slice(0));
   }
@@ -215,39 +99,29 @@ export class ListsViewModel extends Observable {
     this._refilter();
   }
 
+  // **********
+  // end search
+  // **********
+
   // navigate to item detail view
 
   itemDetail(args: EventData) {
-    // const tappedLabel = <Label>args.object;
-    // console.log('Tapped ', tappedLabel);
-    //console.log('detail: ' + args);
-
     const tappedGrid = <GridLayout>args.object;
-    let id = parseInt(tappedGrid.parent.bindingContext.id);
+    const _person = <Person>tappedGrid.parent.bindingContext;
 
-    console.log(id);
-
-    // let _people = this.people;
-    // const index = _people.findIndex(item => item.id === id);
-
-    // if (_people[index].isFavorite) {
-    //   _people[index].isFavorite = false;
-    //   this.totalFavorites = this.totalFavorites - 1;
-    // } else {
-    //   _people[index].isFavorite = true;
-    //   this.totalFavorites = this.totalFavorites + 1;
-    // }
-
-    // this.set('people', _people);
-
-    // const page = topmost().currentPage;
-    // let listView = page.getViewById('list-view');
-    // listView.refresh();
+    topmost().navigate({
+      moduleName: 'lists/detail-page',
+      context: _person,
+      animated: true,
+      transition: {
+        name: 'slide',
+        duration: 200,
+        curve: 'ease'
+      }
+    });
   }
 
   // favorites
-
-  totalFavorites = 0;
 
   itemFavorite(args: EventData) {
     const page = topmost().currentPage;
@@ -260,8 +134,69 @@ export class ListsViewModel extends Observable {
     const person = _people.filter(p => p.id === id)[0];
 
     person.isFavorite = !person.isFavorite;
-    this.totalFavorites = _people.filter(p => p.isFavorite).length;
+    let totalFavorites = _people.filter(p => p.isFavorite).length;
+
+    // for some reason {{ itemFavorites }} is not updating in the action bar?
+    let labelHeart = <Label>page.getViewById('heartLabel');
+    labelHeart.text = totalFavorites.toString();
 
     listView.refresh();
   }
+
+  // *************
+  // begin filters
+  // *************
+
+  slider = 200;
+  rate = 200;
+  favorites = false;
+  titleIndex = 0;
+
+  // * below is an example of a dropdown list with separate text/value *
+  // https://github.com/PeterStaev/NativeScript-Drop-Down
+
+  itemSource = new ValueList<string>([
+    { value: '', display: '' },
+    { value: 'DA', display: 'Developer Advocate' },
+    { value: 'SMC', display: 'Social Media Coordinator' },
+    { value: 'PMM', display: 'Product Marketing Manager' },
+    { value: 'CD', display: 'Company Dog' },
+    { value: 'CSM', display: 'Customer Success Manager' },
+    { value: 'VPE', display: 'VP Engineering' },
+    { value: 'MI', display: 'Marketing Intern' }
+  ]);
+
+  onSliderLoaded(args) {
+    const sliderComponent: Slider = <Slider>args.object;
+    sliderComponent.on('valueChange', sargs => {
+      this.rate = Math.round((<Slider>sargs.object).value);
+    });
+  }
+
+  ddSelectedIndexChanged(args: SelectedIndexChangedEventData) {
+    this.titleIndex = args.newIndex;
+  }
+
+  _otherfilters() {
+    // pay rate
+    this.people = this.allPeople.filter(e => e.payRate <= this.rate);
+
+    // only filter favorites if true
+    if (this.favorites == true) {
+      this.people = this.people.filter(e => e.isFavorite == this.favorites);
+    }
+
+    // only filter by title if something selected
+    if (this.titleIndex > 0) {
+      this.people = this.people.filter(
+        e => e.title == this.itemSource.getDisplay(this.titleIndex)
+      );
+    }
+
+    this.set('people', this.people.slice(0));
+  }
+
+  // ***********
+  // end filters
+  // ***********
 }

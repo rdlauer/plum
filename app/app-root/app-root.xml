@@ -48,7 +48,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     </GridLayout>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Calendar' ? ' selected': '') }}"
-                        route="maps/maps-page" title="Calendar" tap="onNavigationItemTap">
+                        route="calendar/calendar-page" title="Calendar" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf073;" class="fa" />
                         <Label row="0" col="1" text="Calendar" class="plum-text p-r-10" />
                     </GridLayout>
