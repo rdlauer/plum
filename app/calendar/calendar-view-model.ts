@@ -22,7 +22,6 @@ export class CalendarViewModel extends Observable {
       calendarModule.CalendarEvent
     >();
 
-    //let j = 1;
     for (let i = 0; i < _eventTitles.length; i++) {
       const now: Date = new Date();
       const startDate: Date = new Date(
@@ -49,7 +48,6 @@ export class CalendarViewModel extends Observable {
         endDate
       );
       _events.push(event);
-      //j++;
     }
     this.set('events', _events);
   }

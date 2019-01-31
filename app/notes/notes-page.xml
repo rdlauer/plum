@@ -1,0 +1,85 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu"
+			ios:visibility="collapsed"
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+		<ActionBar.actionItems>
+			<ActionItem icon="res://navigation/menu"
+				android:visibility="collapsed"
+				tap="onDrawerButtonTap"
+				ios.position="left">
+			</ActionItem>
+			<ActionItem ios.position="right">
+				<ActionItem.actionView>
+					<StackLayout orientation="horizontal" paddingTop="-6" paddingRight="-10">
+						<Label text="&#xf055;" class="fa" tap="{{ showDialog }}" />
+					</StackLayout>
+				</ActionItem.actionView>
+			</ActionItem>
+		</ActionBar.actionItems>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+    <GridLayout>
+        <StackLayout class="content">
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Notes" />
+			</StackLayout>
+			<StackLayout class="form">
+				<StackLayout class="list-divider-dark" height="10"></StackLayout>
+				<lv:RadListView id="list-view" items="{{ notes }}" height="100%"    
+					selectionBehavior="None" 
+					itemSwipeProgressEnded="{{ onSwipeItemFinished }}"
+					itemSwipeProgressStarted="{{ onSwipeItemStarted }}" 
+					itemSwipeProgressChanged="{{ onItemSwiping }}"
+					swipeActions="true"
+					itemReorder="true"
+					itemReordered="{{ onItemReordered }}">
+					<lv:RadListView.listViewLayout>
+						<lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
+					</lv:RadListView.listViewLayout>
+					<lv:RadListView.itemTemplate>
+						<GridLayout columns="*, auto">
+							<StackLayout class="list-card m-x-auto p-10" col="0">
+								<Label text="{{ title }}" class="note-title" />
+								<Label text="{{ text }}" class="note-text" textWrap="true" />
+							</StackLayout>
+							<lv:ReorderHandle col="1" verticalAlignment="top">
+								<Label text="&#xf0c9;" class="fa" padding="10" />
+							</lv:ReorderHandle>
+						</GridLayout>
+					</lv:RadListView.itemTemplate>
+					<lv:RadListView.itemSwipeTemplate>
+						<GridLayout columns="auto, *, auto">
+							<StackLayout col="0" class="list-btn list-edit-btn" tap="onLeftSwipe" orientation="horizontal" id="swipe-edit">
+								<Label text="Edit" />
+							</StackLayout>
+							<StackLayout col="2" class="list-btn list-delete-btn" tap="onRightSwipe" orientation="horizontal" id="swipe-delete">
+								<Label text="Delete" />
+							</StackLayout>
+						</GridLayout>
+					</lv:RadListView.itemSwipeTemplate>
+				</lv:RadListView>
+			</StackLayout>
+		</StackLayout>
+		<AbsoluteLayout class="dialog-wrapper">
+			<StackLayout class="dialog">
+				<Label text="&#xf055;" class="fa fa-icon-large m-b-10 text-center" />
+				<Label class="h2 text-center dialog-label" text="Make a Note" />
+				<StackLayout class="form m-t-10">
+					<Label class="lbl lbl-light m-t-5" text="Title" />
+					<TextField class="form-input m-t-10" returnKeyType="next" text="{{ newTitle }}" id="txtTitle" />
+					<Label class="lbl lbl-light m-t-5" text="Text" />
+					<TextView class="form-input m-t-5" height="150" text="{{ newText }}" id="txtText" />
+				</StackLayout>
+				<Button class="btn btn-primary" text="Submit" tap="{{ closeDialog }}" />
+			</StackLayout>
+		</AbsoluteLayout>
+    </GridLayout>
+</Page>

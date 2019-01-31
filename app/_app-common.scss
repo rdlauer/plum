@@ -30,6 +30,20 @@
   color: $plum;
 }
 
+/* Card */
+
+.card {
+  background-color: white;
+  width: 155;
+}
+
+.card-content {
+  padding: 20;
+  font-size: 14;
+  color: $plum-text;
+  font-family: $muli-semibold;
+}
+
 /* Custom Modal Dialog */
 
 @keyframes show {
@@ -144,6 +158,10 @@
   background-color: $background-light;
 }
 
+.list-divider-dark {
+  background-color: $background-dark;
+}
+
 .list-avatar {
   border-radius: 50%;
 }
@@ -169,6 +187,37 @@
 
 .list-info-desc {
   font-size: 14;
+}
+
+.note-title {
+  font-size: 16;
+  font-weight: bold;
+  font-family: $muli-semibold;
+}
+
+.note-text {
+  font-size: 14;
+  color: $plum-text-light;
+}
+
+.list-btn {
+  color: $plum-text-white;
+  font-size: 14;
+  font-weight: bold;
+  font-family: $muli-semibold;
+}
+
+.list-btn label {
+  padding-left: 20;
+  padding-right: 20;
+}
+
+.list-delete-btn {
+  background-color: $error-dark;
+}
+
+.list-edit-btn {
+  background-color: $plum;
 }
 
 /* Search */

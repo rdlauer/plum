@@ -1,0 +1,56 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:Card="nativescript-cardview"
+	xmlns:f="nativescript-fresco">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+	<GridLayout>
+		<StackLayout class="content">
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Cards" />
+			</StackLayout>
+			<ScrollView>
+				<Repeater items="{{ people }}">
+					<Repeater.itemsLayout>
+						<WrapLayout class="form form-content" />
+					</Repeater.itemsLayout>
+					<Repeater.itemTemplate>
+						<StackLayout class="p-10">
+							<Card:CardView class="card" radius="5">
+								<StackLayout class="card-content">
+									<ios>
+										<Image src="{{ imageSrc }}" stretch="aspectFill" height="50" width="50" class="list-avatar" row="0" col="0" />
+									</ios>
+									<android>
+										<f:FrescoDrawee horizontalAlignment="stretch" height="50" width="50" imageUri="{{ imageSrc }}" row="0" col="0"  />
+									</android>
+									<Label text="{{ name }}" class="name m-t-10" />
+									<StackLayout orientation="horizontal">
+										<Label text="{{ rating }}" class="rating m-r-5" />
+										<Label text="&#xf005;" class="fa fa-list-star" />
+										<Label text="{{ ' (' + reviews + ')' }}" class="rating" />
+									</StackLayout>
+								</StackLayout>
+							</Card:CardView>
+						</StackLayout>
+					</Repeater.itemTemplate>
+				</Repeater>
+			</ScrollView>
+		</StackLayout>
+	</GridLayout>
+
+</Page>
