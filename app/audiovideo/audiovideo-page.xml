@@ -1,0 +1,43 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"
+	unloaded="{{ clearTimer }}"
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:VideoPlayer="nativescript-videoplayer">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+	<ScrollView>
+		<StackLayout>
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Play Audio File" />
+			</StackLayout>
+			<StackLayout class="form form-content">
+				<GridLayout columns="{{ progressColumns }}" class="progressbar">
+					<StackLayout col="0" class="progressbar-value"></StackLayout>
+				</GridLayout>
+				<Button class="btn btn-primary" text="{{ isAudioPlaying ? 'Pause Audio' : 'Play Audio' }}" tap="{{ playPauseAudio }}" />
+			</StackLayout>
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Play Video File" />
+			</StackLayout>
+			<StackLayout class="form form-content">
+				<VideoPlayer:Video id="nativeVideoPlayer" controls="false" autoplay="false" height="300" src="https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" />
+				<Button class="btn btn-primary" text="{{ isVideoPlaying ? 'Pause Video' : 'Play Video' }}" tap="{{ playPauseVideo }}" />
+				<Button class="btn btn-outline" text="Move to 30 Secs" tap="{{ moveVideo }}" />
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+
+</Page>

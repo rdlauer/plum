@@ -1,7 +1,8 @@
 <Page
     class="page"
     navigatingTo="onNavigatingTo"
-    xmlns="http://schemas.nativescript.org/tns.xsd">
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:f="nativescript-fresco">
 
     <ActionBar class="action-bar">
         <NavigationButton icon="res://menu"

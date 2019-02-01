@@ -1,0 +1,71 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:ns="nativescript-carousel"
+	xmlns:f="nativescript-fresco">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+	<StackLayout>
+        <StackLayout class="form-header">
+			<Label class="lbl h2 m-t-5 m-b-5" text="Image Carousel" />
+		</StackLayout>
+		<ns:Carousel height="100%" width="100%" indicatorColor="#4f5fe7" finite="true" 
+			bounce="false" showIndicator="true" verticalAlignment="top" 
+			android:indicatorAnimation="swap" color="white" pageTapped="{{ onSlideTap }}">
+			<ns:CarouselItem id="slide1">
+				<GridLayout>
+					<ios>
+						<Image src="https://placem.at/people?random=11&w=500&txt=0" stretch="aspectFill" />
+					</ios>
+					<android>
+						<f:FrescoDrawee imageUri="https://placem.at/people?random=11&w=500&txt=0"  />
+					</android>
+				</GridLayout>
+			</ns:CarouselItem>
+			<ns:CarouselItem id="slide2">
+				<GridLayout>
+					<ios>
+						<Image src="https://placem.at/people?random=2&w=500&txt=0" stretch="aspectFill" />
+					</ios>
+					<android>
+						<f:FrescoDrawee imageUri="https://placem.at/people?random=2&w=500&txt=0"  />
+					</android>
+				</GridLayout>
+			</ns:CarouselItem>
+			<ns:CarouselItem id="slide3">
+				<GridLayout>
+					<ios>
+						<Image src="https://placem.at/people?random=3&w=500&txt=0" stretch="aspectFill" />
+					</ios>
+					<android>
+						<f:FrescoDrawee imageUri="https://placem.at/people?random=3&w=500&txt=0"  />
+					</android>
+				</GridLayout>
+			</ns:CarouselItem>
+			<ns:CarouselItem id="slide4">
+				<GridLayout>
+					<ios>
+						<Image src="https://placem.at/people?random=4&w=500&txt=0" stretch="aspectFill" />
+					</ios>
+					<android>
+						<f:FrescoDrawee imageUri="https://placem.at/people?random=4&w=500&txt=0"  />
+					</android>
+				</GridLayout>
+			</ns:CarouselItem>
+		</ns:Carousel>
+	</StackLayout>
+
+</Page>

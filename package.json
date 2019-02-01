@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "nativescript-ar": "^0.6.2",
+    "nativescript-audio": "^5.0.1",
     "nativescript-cardview": "^3.1.1",
+    "nativescript-carousel": "^4.1.0",
     "nativescript-checkbox": "^3.0.3",
     "nativescript-drop-down": "^4.0.1",
     "nativescript-flashlight": "^2.0.0",
@@ -29,6 +31,7 @@
     "nativescript-ui-calendar": "^3.10.0",
     "nativescript-ui-listview": "^5.1.1",
     "nativescript-ui-sidedrawer": "~5.1.0",
+    "nativescript-videoplayer": "^4.2.1",
     "rxjs": "~6.4.0",
     "tns-core-modules": "~5.1.2"
   },

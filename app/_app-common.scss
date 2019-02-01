@@ -220,6 +220,18 @@
   background-color: $plum;
 }
 
+/* Progress */
+
+.progressbar {
+  height: 30;
+  margin: 10;
+  border-radius: 10;
+  background: #eceff1;
+}
+.progressbar-value {
+  background: $plum;
+}
+
 /* Search */
 
 .search-bar {

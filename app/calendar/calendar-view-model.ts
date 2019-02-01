@@ -1,5 +1,4 @@
 import { Observable } from 'tns-core-modules/data/observable';
-const topmost = require('tns-core-modules/ui/frame').topmost;
 import * as calendarModule from 'nativescript-ui-calendar';
 
 import { SelectedPageService } from '../shared/selected-page-service';
