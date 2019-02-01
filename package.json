@@ -15,9 +15,11 @@
     "lint": "tslint \"app/**/*.ts\""
   },
   "dependencies": {
+    "nativescript-ar": "^0.6.2",
     "nativescript-cardview": "^3.1.1",
     "nativescript-checkbox": "^3.0.3",
     "nativescript-drop-down": "^4.0.1",
+    "nativescript-flashlight": "^2.0.0",
     "nativescript-fresco": "^5.2.0",
     "nativescript-geolocation": "^4.4.1",
     "nativescript-imagepicker": "^6.0.6",

@@ -71,6 +71,14 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="1" text="Charts" class="plum-text p-r-10" />
                     </GridLayout>
 
+                    <ios>
+						<GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'AR' ? ' selected': '') }}"
+							route="ar/ar-page" title="AR" tap="onNavigationItemTap">
+							<Label row="0" col="0" text="&#xf21d;" class="fa" />
+							<Label row="0" col="1" text="Augmented Reality" class="plum-text p-r-10" />
+						</GridLayout>
+					</ios>
+
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Carousel' ? ' selected': '') }}"
                         route="maps/maps-page" title="Carousel" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf021;" class="fa" />

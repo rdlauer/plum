@@ -20,8 +20,7 @@
 		<Image src="~/images/plum.png" class="m-x-auto logo" width="30%" stretch="aspectFit" />
         <Label class="lbl h1 m-x-auto m-t-30" text="Welcome to Plum!" />
 		<Label class="lbl m-x-auto p-t-20 p-b-30" text="Open the drawer to access UI kit views." />
-		<Button class="btn btn-primary" text="Login" />
-		<Button class="btn btn-outline" text="Create an account" />
-		<Button class="btn-text-only" text="Login with mobile number" />
+		<Button class="btn btn-primary" text="Login" onTap="{{ login }}" />
+		<Button class="btn btn-outline" text="Create an account" onTap="{{ signup }}" />
     </StackLayout>
 </Page>

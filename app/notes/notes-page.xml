@@ -40,6 +40,7 @@
 					itemSwipeProgressChanged="{{ onItemSwiping }}"
 					swipeActions="true"
 					itemReorder="true"
+					reorderMode="Drag"
 					itemReordered="{{ onItemReordered }}">
 					<lv:RadListView.listViewLayout>
 						<lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
@@ -79,6 +80,7 @@
 					<TextView class="form-input m-t-5" height="150" text="{{ newText }}" id="txtText" />
 				</StackLayout>
 				<Button class="btn btn-primary" text="Submit" tap="{{ closeDialog }}" />
+				<Button class="btn btn-outline" text="Cancel" tap="{{ cancelDialog }}" />
 			</StackLayout>
 		</AbsoluteLayout>
     </GridLayout>

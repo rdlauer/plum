@@ -1,0 +1,35 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+    <StackLayout>
+        <StackLayout class="form-header">
+			<Label class="lbl h2 m-t-5 m-b-5" text="Login" />
+		</StackLayout>
+		<StackLayout class="form form-content">
+			<Label class="lbl lbl-light m-t-20" text="Email" />
+			<TextField class="form-input m-t-10" hint="you@gmail.com" 
+				keyboardType="email" autocorrect="false" 
+				autocapitalizationType="none" returnKeyType="next" text="{{ email }}" />
+			<Label class="lbl lbl-light m-t-20" text="Password" />
+			<TextField class="form-input m-t-10 m-b-20" secure="true" autocorrect="false" 
+				autocapitalizationType="none" returnKeyType="next" text="{{ password }}" />
+			<Button class="btn btn-primary" text="Login" tap="{{ doLogin }}" />
+			<Button class="btn btn-outline" text="Forgot password?" tap="{{ recoverPassword }}" />
+		</StackLayout>
+    </StackLayout>
+</Page>

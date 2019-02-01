@@ -59,6 +59,21 @@ export class NotesViewModel extends Observable {
     txtText.text = '';
   }
 
+  cancelDialog() {
+    const page = topmost().currentPage;
+    page.className = 'page';
+
+    this.newTitle = '';
+    this.newText = '';
+    this.editIndex = -1;
+
+    // TODO: not sure why these observables aren't updating the UI?
+    let txtTitle = <TextField>page.getViewById('txtTitle');
+    txtTitle.text = '';
+    let txtText = <TextView>page.getViewById('txtText');
+    txtText.text = '';
+  }
+
   allNotes: Array<Note> = require('./notes.json');
   notes = this.allNotes;
   newTitle: string = '';
