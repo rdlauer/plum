@@ -16,30 +16,40 @@
         <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
     </ActionBar>
 
-    <StackLayout>
-        <StackLayout class="form-header">
-			<Label class="lbl h2 m-t-5 m-b-5" text="Create an account" />
+    <GridLayout>
+        <StackLayout class="content">
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Create an account" />
+			</StackLayout>
+			<StackLayout class="form form-content">
+				<Label class="lbl lbl-light m-t-5" text="Mobile Number" />
+				<TextField class="form-input m-t-10" hint="(555) 555-5555" 
+					keyboardType="phone" autocorrect="false" id="txtMobile"
+					autocapitalizationType="none" returnKeyType="next" text="{{ mobile }}" />
+				<Label class="lbl lbl-light m-t-20" text="Email" />
+				<TextField class="form-input m-t-10" hint="you@gmail.com" 
+					keyboardType="email" autocorrect="false" id="txtEmail"
+					autocapitalizationType="none" returnKeyType="next" text="{{ email }}" />
+				<Label class="lbl lbl-light m-t-20" text="Password" />
+				<TextField class="form-input m-t-10" secure="true" autocorrect="false" 
+					id="txtPassword1" autocapitalizationType="none" returnKeyType="next" 
+					text="{{ password1 }}" />
+				<TextField class="form-input m-t-5" secure="true" autocorrect="false" 
+					autocapitalizationType="none" id="txtPassword2" 
+					text="{{ password2 }}" />
+				<Button class="btn-text-only pull-left m-t-20" 
+					text="I have a referral code (opens modal view)" tap="{{ showModal }}" />
+				<Label class="lbl m-t-30 m-b-10" textWrap="true" text="By continuing I agree to all the legal mumbo jumbo required of me." />
+				<Button class="btn btn-primary" text="Next" tap="{{ submit }}" />
+			</StackLayout>
 		</StackLayout>
-		<StackLayout class="form form-content">
-			<Label class="lbl lbl-light m-t-5" text="Mobile Number" />
-			<TextField class="form-input m-t-10" hint="(555) 555-5555" 
-				keyboardType="phone" autocorrect="false" 
-				autocapitalizationType="none" returnKeyType="next" />
-			<Label class="lbl lbl-light m-t-20" text="Email" />
-			<TextField class="form-input m-t-10" hint="you@gmail.com" 
-				keyboardType="email" autocorrect="false" 
-				autocapitalizationType="none" returnKeyType="next" />
-			<Label class="lbl lbl-light m-t-20" text="Password" />
-			<TextField class="form-input m-t-10" secure="true" autocorrect="false" 
-				autocapitalizationType="none" returnKeyType="next" text="{{ password }}" />
-			<TextField class="form-input m-t-5" secure="true" autocorrect="false" 
-				autocapitalizationType="none" id="confirmPassword" text="{{ confirmPassword }}" />
-			<Label class="lbl lbl-form-required" text="Passwords do not match" 	
-				id="passwordMatch" visibility="collapsed" />
-			<Button class="btn-text-only pull-left m-t-20" text="I have a referral code (opens modal view)"
-				tap="{{ showModal }}" />
-			<Label class="lbl m-t-30 m-b-10" textWrap="true" text="By continuing I agree to all the legal mumbo jumbo required of me." />
-			<Button class="btn btn-primary" text="Next" tap="{{ submit }}" />
-		</StackLayout>
-    </StackLayout>
+		<AbsoluteLayout class="dialog-wrapper">
+			<StackLayout class="dialog">
+				<Label text="&#xf058;" class="fa fa-icon-large m-b-10 text-center" />
+				<Label class="h2 text-center dialog-label" text="Thanks!" />
+				<Label class="text-center dialog-label" text="Your account has been created." />
+				<Button class="btn btn-primary" text="Close" tap="{{ closeDialog }}" />
+			</StackLayout>
+		</AbsoluteLayout>
+    </GridLayout>
 </Page>

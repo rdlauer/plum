@@ -22,14 +22,17 @@
 		</StackLayout>
 		<StackLayout class="form form-content">
 			<Label class="lbl lbl-light m-t-20" text="Email" />
-			<TextField class="form-input m-t-10" hint="you@gmail.com" 
+			<TextField class="form-input m-t-10" hint="you@gmail.com" id="txtEmail" 
 				keyboardType="email" autocorrect="false" 
 				autocapitalizationType="none" returnKeyType="next" text="{{ email }}" />
 			<Label class="lbl lbl-light m-t-20" text="Password" />
-			<TextField class="form-input m-t-10 m-b-20" secure="true" autocorrect="false" 
-				autocapitalizationType="none" returnKeyType="next" text="{{ password }}" />
-			<Button class="btn btn-primary" text="Login" tap="{{ doLogin }}" />
-			<Button class="btn btn-outline" text="Forgot password?" tap="{{ recoverPassword }}" />
+			<TextField class="form-input m-t-10" secure="true" autocorrect="false" 
+				id="txtPassword" autocapitalizationType="none" returnKeyType="next" 
+				text="{{ password }}" />
+			<StackLayout class="m-t-20">
+				<Button class="btn btn-primary m-t-20" text="Login" tap="{{ doLogin }}" />
+				<Button class="btn btn-outline" text="Forgot password?" tap="{{ recoverPassword }}" />
+			</StackLayout>
 		</StackLayout>
     </StackLayout>
 </Page>

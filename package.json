@@ -27,6 +27,7 @@
     "nativescript-imagepicker": "^6.0.6",
     "nativescript-iqkeyboardmanager": "^1.3.0",
     "nativescript-mapbox": "^4.4.1",
+    "nativescript-taptic-engine": "^2.1.0",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-ui-calendar": "^3.10.0",
     "nativescript-ui-listview": "^5.1.1",

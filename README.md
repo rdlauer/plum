@@ -24,6 +24,7 @@ Plum uses the following NativeScript plugins (find them all at [market.nativescr
 - nativescript-carousel
 - nativescript-audio
 - nativescript-videoplayer
+- nativescript-taptic-engine
 
 ## License
 

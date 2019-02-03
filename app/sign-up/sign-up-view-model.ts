@@ -8,19 +8,64 @@ export class SignUpViewModel extends Observable {
     super();
     SelectedPageService.getInstance().updateSelectedPage('Sign Up');
   }
-  password: '';
-  confirmPassword: '';
+
+  mobile: '';
+  email: '';
+  password1: '';
+  password2: '';
+
   submit() {
     const page = topmost().currentPage;
-    let confirmPassword = page.getViewById('confirmPassword');
-    let passwordMatch = page.getViewById('passwordMatch');
 
-    if (this.password != this.confirmPassword) {
-      confirmPassword.className = 'form-input m-t-5 form-input-required';
-      passwordMatch.visibility = 'visible';
+    let formValid = true;
+    let txtMobile = page.getViewById('txtMobile');
+    let txtEmail = page.getViewById('txtEmail');
+    let txtPassword1 = page.getViewById('txtPassword1');
+    let txtPassword2 = page.getViewById('txtPassword2');
+
+    // TODO: this validation could be dramatically simplified I'm sure...
+
+    if (!this.mobile) {
+      txtMobile.className = 'form-input m-t-10 form-input-required';
+      formValid = false;
     } else {
-      confirmPassword.className = 'form-input m-t-5';
-      passwordMatch.visibility = 'collapsed';
+      txtMobile.className = 'form-input m-t-10';
+    }
+
+    if (!this.email) {
+      txtEmail.className = 'form-input m-t-10 form-input-required';
+      formValid = false;
+    } else {
+      txtEmail.className = 'form-input m-t-10';
+    }
+
+    if (!this.password1) {
+      txtPassword1.className = 'form-input m-t-10 form-input-required';
+      formValid = false;
+    } else {
+      txtPassword1.className = 'form-input m-t-10';
+    }
+
+    if (!this.password2) {
+      txtPassword2.className = 'form-input m-t-5 form-input-required';
+      formValid = false;
+    } else {
+      txtPassword2.className = 'form-input m-t-5';
+    }
+
+    if (formValid) {
+      if (this.password1 != this.password2) {
+        txtPassword1.className = 'form-input m-t-10 form-input-required';
+        txtPassword2.className = 'form-input m-t-5 form-input-required';
+        formValid = false;
+      } else {
+        txtPassword1.className = 'form-input m-t-10';
+        txtPassword2.className = 'form-input m-t-5';
+      }
+    }
+
+    if (formValid) {
+      this.showDialog();
     }
   }
   showModal() {
@@ -46,5 +91,15 @@ export class SignUpViewModel extends Observable {
       },
       false // Full screen or not? (on iOS the modal is fullscreen regardless of this value!)
     );
+  }
+
+  showDialog() {
+    const page = topmost().currentPage;
+    page.className = 'page dialogOpen';
+  }
+
+  closeDialog() {
+    const page = topmost().currentPage;
+    page.className = 'page';
   }
 }

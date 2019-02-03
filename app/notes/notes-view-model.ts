@@ -24,6 +24,14 @@ export class NotesViewModel extends Observable {
     SelectedPageService.getInstance().updateSelectedPage('Notes');
   }
 
+  allNotes: Array<Note> = require('./notes.json');
+  notes = this.allNotes;
+  newTitle: string = '';
+  newText: string = '';
+  leftThresholdPassed: boolean = false;
+  rightThresholdPassed: boolean = false;
+  editIndex: number = -1;
+
   showDialog() {
     const page = topmost().currentPage;
     page.className = 'page dialogOpen';
@@ -48,39 +56,19 @@ export class NotesViewModel extends Observable {
 
     page.className = 'page';
 
-    this.newTitle = '';
-    this.newText = '';
-    this.editIndex = -1;
-
-    // TODO: not sure why these observables aren't updating the UI?
-    let txtTitle = <TextField>page.getViewById('txtTitle');
-    txtTitle.text = '';
-    let txtText = <TextView>page.getViewById('txtText');
-    txtText.text = '';
+    this.set('newTitle', '');
+    this.set('newText', '');
+    this.set('editIndex', -1);
   }
 
   cancelDialog() {
     const page = topmost().currentPage;
     page.className = 'page';
 
-    this.newTitle = '';
-    this.newText = '';
-    this.editIndex = -1;
-
-    // TODO: not sure why these observables aren't updating the UI?
-    let txtTitle = <TextField>page.getViewById('txtTitle');
-    txtTitle.text = '';
-    let txtText = <TextView>page.getViewById('txtText');
-    txtText.text = '';
+    this.set('newTitle', '');
+    this.set('newText', '');
+    this.set('editIndex', -1);
   }
-
-  allNotes: Array<Note> = require('./notes.json');
-  notes = this.allNotes;
-  newTitle: string = '';
-  newText: string = '';
-  leftThresholdPassed: boolean = false;
-  rightThresholdPassed: boolean = false;
-  editIndex: number = -1;
 
   onItemSwiping(args: SwipeActionsEventData) {
     const swipeView = args.swipeView;
@@ -172,6 +160,7 @@ export class NotesViewModel extends Observable {
     // console.log('Old index: ' + args.index);
     // console.log('new index: ' + args.data.targetIndex);
 
+    // TODO: this array re-ordering is not working correctly
     this.notes.splice(
       args.data.targetIndex,
       0,

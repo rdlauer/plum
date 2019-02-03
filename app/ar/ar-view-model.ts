@@ -11,9 +11,9 @@ export class ARViewModel extends Observable {
     SelectedPageService.getInstance().updateSelectedPage('AR');
 
     const supported = AR.isSupported();
-    this.message = `AR supported? ${supported}`;
+    this.message = `AR Supported on Device? ${supported}`;
 
-    console.log(`Image tracking supported? ${AR.isImageTrackingSupported()}`);
+    //console.log(`Image tracking supported? ${AR.isImageTrackingSupported()}`);
 
     if (!supported) {
       return;

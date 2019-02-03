@@ -23,10 +23,10 @@ export class AudioVideoViewModel extends Observable {
     playerAudio
       .initFromUrl(playerOptions)
       .then(res => {
-        //console.log(res);
+        console.log(res);
       })
       .catch(err => {
-        //console.log('something went wrong...', err);
+        console.log('something went wrong...', err);
       });
   }
 

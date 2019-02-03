@@ -37,7 +37,8 @@
 			<StackLayout class="form form-content">
 				<GridLayout rows="auto" columns="*, auto">
 					<SearchBar hint="Search..." text="{{ searchPhrase }}" loaded="onSearchLoaded"
-						class="search-bar m-b-10" submit="{{ onSearchSubmit }}" clear="{{ clear }}" row="0" col="0" />
+						class="search-bar m-b-10" submit="{{ onSearchSubmit }}" 
+						clear="{{ clear }}" row="0" col="0" />
 					<Label text="&#xf1de;" class="fa fa-icon-filter" row="0" col="1" tap="{{ showDialog }}" />
 				</GridLayout>
 				<lv:RadListView id="list-view" items="{{ people }}" height="100%">

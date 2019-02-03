@@ -25,7 +25,7 @@ export function onNavigatingTo(args: NavigatedData) {
   model.screenshot = page.getViewById('screenshot');
   page.bindingContext = model;
 
-  if (isIOS) {
+  if (isIOS && flashlight.isAvailable()) {
     const flashlightSwitch = page.getViewById('flashlightSwitch');
     flashlightSwitch.on('checkedChange', (args: any) => {
       args.value ? flashlight.on() : flashlight.off();
@@ -39,27 +39,8 @@ export function onDrawerButtonTap(args: EventData) {
 }
 
 const flashlight = require('nativescript-flashlight');
-
 declare const NSBundle: any;
-
 let ar: AR;
-
-// // Event handler for Page 'loaded' event attached in main-page.xml
-// export function pageLoaded(args: observable.EventData) {
-//   // Get the event sender
-//   const page = <pages.Page>args.object;
-//   const model = new HelloWorldModel();
-//   model.ar = ar;
-//   model.screenshot = page.getViewById("screenshot");
-//   page.bindingContext = model;
-
-//   if (isIOS) {
-//     const flashlightSwitch = page.getViewById("flashlightSwitch");
-//     flashlightSwitch.on("checkedChange", (args: any) => {
-//       args.value ? flashlight.on() : flashlight.off();
-//     });
-//   }
-// }
 
 export function arLoaded(args: ARLoadedEventData): void {
   ar = args.object;

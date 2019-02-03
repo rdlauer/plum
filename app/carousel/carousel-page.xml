@@ -20,7 +20,7 @@
 
 	<StackLayout>
         <StackLayout class="form-header">
-			<Label class="lbl h2 m-t-5 m-b-5" text="Image Carousel" />
+			<Label class="lbl h2 m-t-5 m-b-5" text="Image Carousel + iOS Taptic" />
 		</StackLayout>
 		<ns:Carousel height="100%" width="100%" indicatorColor="#4f5fe7" finite="true" 
 			bounce="false" showIndicator="true" verticalAlignment="top" 

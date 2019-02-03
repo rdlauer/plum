@@ -20,7 +20,7 @@
     <StackLayout>
         <StackLayout class="form-header" orientation="horizontal">
 			<Label class="fa fa-icon-medium" text="&#xf190;" tap="goBack" />
-			<Label class="lbl h2 m-t-5 m-b-5 m-l-10" text="Detail" />
+			<Label class="lbl h2 m-t-5 m-b-5 m-l-10" text="Detail" tap="goBack" />
 		</StackLayout>
 		<StackLayout class="form form-content" orientation="horizontal">
 			<ios>
@@ -32,20 +32,16 @@
 			<Label class="lbl m-l-20 h2" text="{{ name }}" />
 			<Label text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart  m-l-20 h2" />
 		</StackLayout>
-		<StackLayout class="list-card" orientation="horizontal">
-			<GridLayout rows="auto, auto" columns="60, 260">
-				<StackLayout class="list-info" row="0" col="1">
-					<Label text="{{ name }}" class="name" />
-					<StackLayout orientation="horizontal">
-						<Label text="{{ rating }}" class="rating m-r-5" />
-						<Label text="&#xf005;" class="fa fa-list-star" />
-						<Label text="{{ ' (' + reviews + ')' }}" class="rating" />
-					</StackLayout>
-					<Label text="{{ '$' + payRate + '/hr · ' + title }}" class="title" />
+		<StackLayout class="list-card">
+			<StackLayout class="list-info-detail">
+				<StackLayout orientation="horizontal" class="m-t-10 m-b-20">
+					<Label text="{{ rating }}" class="rating m-r-5" />
+					<Label text="&#xf005;" class="fa fa-list-star" />
+					<Label text="{{ ' (' + reviews + ')' }}" class="rating" />
 				</StackLayout>
-				<Label text="{{ description }}" row="1" col="0" colSpan="2" class="list-info-desc" textWrap="true" />
-			</GridLayout>
-			
+				<Label text="{{ '$' + payRate + '/hr · ' + title }}" class="title m-b-20" />
+				<Label text="{{ description }}" class="list-info-desc-detail" textWrap="true" />
+			</StackLayout>
 		</StackLayout>
     </StackLayout>
 </Page>

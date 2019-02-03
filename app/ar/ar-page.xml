@@ -43,14 +43,14 @@
     </AR:AR>
     <iOS>
       <StackLayout row="1" horizontalAlignment="right" verticalAlignment="bottom">
-        <Button text="Grab screenshot" class="bg-primary grab-screenshot" horizontalAlignment="right" tap="{{ grabScreenshot }}"/>
-
+        <Button text="📷 Take Screenshot" class="bg-primary ar-screenshot" horizontalAlignment="right" tap="{{ grabScreenshot }}"/>
         <GridLayout rows="auto" columns="*, 80" horizontalAlignment="right" verticalAlignment="bottom" class="bg-primary toggle-flashlight">
-          <Label text="Flashlight" class="m-r-10" horizontalAlignment="right"/>
-          <Switch id="flashlightSwitch" col="1" checked="false"/>
+          <Label text="🔦 Flashlight" class="m-r-10 ar-flashlight" horizontalAlignment="right"/>
+          <Switch id="flashlightSwitch" col="1" checked="false" class="switch-light" />
         </GridLayout>
       </StackLayout>
-      <Image row="1" id="screenshot" width="180" class="screenshot" horizontalAlignment="left" verticalAlignment="bottom"/>
+      <Image row="1" id="screenshot" width="180" class="screenshot" 
+	  horizontalAlignment="left" verticalAlignment="bottom"/>
     </iOS>
   </GridLayout>
 
