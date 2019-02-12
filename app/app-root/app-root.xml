@@ -53,8 +53,8 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="1" text="Calendar" class="plum-text p-r-10" />
                     </GridLayout>
 
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Inbox' ? ' selected': '') }}"
-                        route="notes/notes-page" title="Inbox" tap="onNavigationItemTap">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Notes' ? ' selected': '') }}"
+                        route="notes/notes-page" title="Notes" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf24a;" class="fa" />
                         <Label row="0" col="1" text="Notes" class="plum-text p-r-10" />
                     </GridLayout>

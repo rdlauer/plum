@@ -8,6 +8,7 @@ import { View } from 'tns-core-modules/ui/core/view';
 import { layout } from 'tns-core-modules/utils/utils';
 import { TextField } from 'tns-core-modules/ui/text-field';
 import { TextView } from 'tns-core-modules/ui/text-view';
+import { TapticEngine } from 'nativescript-taptic-engine';
 
 const topmost = require('tns-core-modules/ui/frame').topmost;
 
@@ -135,19 +136,19 @@ export class NotesViewModel extends Observable {
 
   onSwipeItemFinished(args: SwipeActionsEventData) {
     const page = topmost().currentPage;
+    // adding a taptic tap on iOS, just for fun :)
+    let tapticEngine = new TapticEngine();
+
     if (this.leftThresholdPassed) {
       // edit
+      tapticEngine.selection();
       this.showDialog();
-      // TODO fix this
-      this.newTitle = this.notes[args.index].title;
-      this.newText = this.notes[args.index].text;
-      let txtTitle = <TextField>page.getViewById('txtTitle');
-      txtTitle.text = this.notes[args.index].title;
-      let txtText = <TextView>page.getViewById('txtText');
-      txtText.text = this.notes[args.index].text;
-      this.editIndex = args.index;
+      this.set('newTitle', this.notes[args.index].title);
+      this.set('newText', this.notes[args.index].text);
+      this.set('editIndex', args.index);
     } else if (this.rightThresholdPassed) {
       // delete
+      tapticEngine.selection();
       this.notes.splice(args.index, 1);
       let listView = <RadListView>page.getViewById('list-view');
       listView.refresh();

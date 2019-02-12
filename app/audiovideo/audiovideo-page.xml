@@ -33,7 +33,7 @@
 				<Label class="lbl h2 m-t-5 m-b-5" text="Play Video File" />
 			</StackLayout>
 			<StackLayout class="form form-content">
-				<VideoPlayer:Video id="nativeVideoPlayer" controls="false" autoplay="false" height="300" src="https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" />
+				<VideoPlayer:Video id="nativeVideoPlayer" controls="false" autoplay="false" height="200" src="https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" />
 				<Button class="btn btn-primary" text="{{ isVideoPlaying ? 'Pause Video' : 'Play Video' }}" tap="{{ playPauseVideo }}" />
 				<Button class="btn btn-outline" text="Move to 30 Secs" tap="{{ moveVideo }}" />
 			</StackLayout>
