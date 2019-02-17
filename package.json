@@ -1,11 +1,11 @@
 {
   "nativescript": {
     "id": "org.nativescript.plum",
-    "tns-android": {
-      "version": "5.1.0"
-    },
     "tns-ios": {
-      "version": "5.1.0"
+      "version": "5.2.0"
+    },
+    "tns-android": {
+      "version": "5.2.0"
     }
   },
   "description": "NativeScript Application",
@@ -23,9 +23,9 @@
     "nativescript-drop-down": "^4.0.1",
     "nativescript-flashlight": "^2.0.0",
     "nativescript-fresco": "^5.2.0",
-    "nativescript-geolocation": "^4.4.2",
-    "nativescript-imagepicker": "^6.0.6",
-    "nativescript-iqkeyboardmanager": "^1.3.0",
+    "nativescript-geolocation": "^4.5.0",
+    "nativescript-imagepicker": "^6.1.0",
+    "nativescript-iqkeyboardmanager": "^1.4.0",
     "nativescript-mapbox": "^4.4.1",
     "nativescript-taptic-engine": "^2.1.0",
     "nativescript-theme-core": "~1.0.4",
@@ -34,12 +34,12 @@
     "nativescript-ui-sidedrawer": "~5.1.0",
     "nativescript-videoplayer": "^4.2.1",
     "rxjs": "~6.4.0",
-    "tns-core-modules": "~5.1.2"
+    "tns-core-modules": "^5.2.0"
   },
   "devDependencies": {
     "nativescript-dev-sass": "~1.6.1",
-    "nativescript-dev-typescript": "~0.7.9",
-    "nativescript-dev-webpack": "~0.19.1",
+    "nativescript-dev-typescript": "~0.8.0",
+    "nativescript-dev-webpack": "~0.20.0",
     "tslint": "~5.12.1"
   },
   "readme": "NativeScript Application"

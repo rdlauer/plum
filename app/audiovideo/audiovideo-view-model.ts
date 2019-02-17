@@ -51,6 +51,10 @@ export class AudioVideoViewModel extends Observable {
         current *= 1000;
       }
 
+      if (isNaN(duration) || duration <= 0) {
+        duration = 10000; // 10 seconds for when we hit dat duration bug
+      }
+
       let percent = Math.ceil((current / duration) * 100);
 
       this.set('progressColumns', percent + '*,' + (100 - percent) + '*');
