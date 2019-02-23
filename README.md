@@ -18,6 +18,7 @@ Plum uses the following NativeScript plugins (find them all at [market.nativescr
 - nativescript-ui-calendar
 - nativescript-ui-listview
 - nativescript-ui-sidedrawer
+- nativescript-ui-chart
 - nativescript-cardview
 - nativescript-ar
 - nativescript-flashlight

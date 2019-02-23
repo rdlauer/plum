@@ -24,9 +24,9 @@
 			</StackLayout>
 			<ScrollView>
 				<StackLayout class="form form-content">
-					<Label text="&#xf2be;" class="fa fa-icon-large text-center" 
+					<Label text="&#xf2be;" class="fa fa-icon-large text-center anim-pulse" 
 						visibility="{{ isSingleMode ? 'collapsed' : 'visible' }}" />
-					<Image src="{{ imageSrc }}" class="profile-pic" 
+					<Image src="{{ imageSrc }}" class="profile-pic anim-pulse" 
 						visibility="{{ isSingleMode ? 'visible' : 'collapsed' }}" 
 						width="{{ previewSize }}" height="{{ previewSize }}" stretch="none" />
 					<Button class="btn-text-only" text="Add Photo" tap="{{ onSelectSingleTap }}" />

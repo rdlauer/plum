@@ -49,7 +49,7 @@
 						<GridLayout columns="*, auto">
 							<StackLayout class="list-card m-x-auto p-10" col="0">
 								<Label text="{{ title }}" class="note-title" />
-								<Label text="{{ text }}" class="note-text" textWrap="true" />
+								<Label text="{{ text }}" class="note-text m-t-5" textWrap="true" />
 							</StackLayout>
 							<lv:ReorderHandle col="1" verticalAlignment="top">
 								<Label text="&#xf0c9;" class="fa" padding="10" />

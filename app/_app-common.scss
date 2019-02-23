@@ -244,7 +244,7 @@
 }
 
 .list-delete-btn {
-  background-color: $error-dark;
+  background-color: $error-light;
 }
 
 .list-edit-btn {
@@ -285,6 +285,13 @@
   background-color: $plum-text-light;
 }
 
+/* Tabs */
+
+.tab-item {
+  selected-tab-text-color: $plum;
+  android-selected-tab-highlight-color: $plum;
+}
+
 /* Misc */
 
 .logo {
@@ -294,6 +301,45 @@
 
 .profile-pic {
   border-radius: 50%;
+}
+
+.anim-pulse {
+  transform: scale(0.8, 0.8);
+  animation-name: pulse;
+  animation-duration: 0.2;
+  opacity: 0;
+  animation-delay: 0.3;
+  animation-fill-mode: forwards;
+}
+
+.anim-pulse-delay1 {
+  transform: scale(0.8, 0.8);
+  animation-name: pulse;
+  animation-duration: 0.2;
+  opacity: 0;
+  animation-delay: 0.4;
+  animation-fill-mode: forwards;
+}
+
+.anim-pulse-delay2 {
+  transform: scale(0.8, 0.8);
+  animation-name: pulse;
+  animation-duration: 0.2;
+  opacity: 0;
+  animation-delay: 0.5;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+    transform: scale(2, 2);
+    animation-timing-function: ease-in;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }
 
 .plum-text {

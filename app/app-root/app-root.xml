@@ -74,7 +74,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 					</ios>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Charts' ? ' selected': '') }}"
-                        route="maps/maps-page" title="Charts" tap="onNavigationItemTap">
+                        route="charts/charts-page" title="Charts" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf080;" class="fa" />
                         <Label row="0" col="1" text="Charts" class="plum-text p-r-10" />
                     </GridLayout>
@@ -82,7 +82,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Carousel' ? ' selected': '') }}"
                         route="carousel/carousel-page" title="Carousel" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf021;" class="fa" />
-                        <Label row="0" col="1" text="Carousel" class="plum-text p-r-10" />
+                        <Label row="0" col="1" text="Image Carousel" class="plum-text p-r-10" />
                     </GridLayout>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'AudioVideo' ? ' selected': '') }}"

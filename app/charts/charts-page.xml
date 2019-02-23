@@ -1,0 +1,195 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:chart="nativescript-ui-chart">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+	<TabView id="tabViewContainer" androidTabsPosition="bottom" class="tab-item">
+		<TabViewItem iconSource="res://chart/bar/bar2">
+			<StackLayout>
+				<StackLayout class="form-header">
+					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
+				</StackLayout>
+				<GridLayout rows="auto, *">
+					<chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
+						<chart:RadCartesianChart.horizontalAxis>
+							<chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1" />
+						</chart:RadCartesianChart.horizontalAxis>
+						<chart:RadCartesianChart.verticalAxis>
+							<chart:LinearAxis lineColor="#b0b0b0" lineThickness="1" />
+						</chart:RadCartesianChart.verticalAxis>
+						<chart:RadCartesianChart.series>
+							<chart:BarSeries seriesName="Bar" categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount" selectionMode="Series" stackMode="Stack" />
+							<chart:BarSeries seriesName="Bar" categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount" selectionMode="Series" stackMode="Stack" />
+						</chart:RadCartesianChart.series>
+						<chart:RadCartesianChart.grid>
+							<chart:RadCartesianChartGrid horizontalLinesVisible="true" 
+								verticalLinesVisible="false" 
+								verticalStripLinesVisible="false" 
+								horizontalStrokeColor="#e5e5e5"
+								verticalStripLineColor="#00000000, #00000000"
+								horizontalStripLineColor="#f8f8f8, #00000000"/>
+						</chart:RadCartesianChart.grid>
+						<chart:RadCartesianChart.palettes>
+							<chart:Palette seriesName="Bar">
+								<chart:Palette.entries>
+									<chart:PaletteEntry fillColor="#4f5fe7" strokeWidth="0" android:strokeColor="#999999" />
+									<chart:PaletteEntry fillColor="#e7964f" strokeWidth="0" android:strokeColor="#999999" />
+								</chart:Palette.entries>
+							</chart:Palette>
+							<chart:Palette seriesName="Bar" seriesState="Selected">
+								<chart:Palette.entries>
+									<chart:PaletteEntry fillColor="#4f5fe7" strokeColor="#999999" strokeWidth="2" />
+									<chart:PaletteEntry fillColor="#e7964f" strokeColor="#999999" strokeWidth="2" />
+								</chart:Palette.entries>
+							</chart:Palette> 
+						</chart:RadCartesianChart.palettes>
+					</chart:RadCartesianChart>
+				</GridLayout>
+			</StackLayout>
+		</TabViewItem>
+		<TabViewItem iconSource="res://chart/line/line2">
+			<StackLayout>
+				<StackLayout class="form-header">
+					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
+				</StackLayout>
+				<GridLayout rows="auto, *">
+					<chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
+						<chart:RadCartesianChart.horizontalAxis>
+							<chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1"/>
+						</chart:RadCartesianChart.horizontalAxis>
+						<chart:RadCartesianChart.verticalAxis>
+							<chart:LinearAxis lineColor="#b0b0b0" lineThickness="1"/>
+						</chart:RadCartesianChart.verticalAxis>
+						<chart:RadCartesianChart.series>
+							<chart:LineSeries seriesName="Line" categoryProperty="Category" items="{{ categoricalSource }}"  valueProperty="Amount" selectionMode="Series"/>
+							<chart:LineSeries seriesName="Line" categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount" selectionMode="Series"/>
+						</chart:RadCartesianChart.series>
+						<chart:RadCartesianChart.grid>
+							<chart:RadCartesianChartGrid 
+								horizontalLinesVisible="true" 
+								verticalLinesVisible="false" 
+								verticalStripLinesVisible="false"
+								horizontalStrokeColor="#e5e5e5"
+								verticalStripLineColor="#00000000, #00000000"
+								horizontalStripLineColor="#f8f8f8, #00000000"/>
+						</chart:RadCartesianChart.grid>
+						<chart:RadCartesianChart.palettes>
+							<chart:Palette seriesName="Line">
+								<chart:Palette.entries>
+									<chart:PaletteEntry strokeColor="#e7964f" strokeWidth="1" />
+									<chart:PaletteEntry strokeColor="#4f5fe7" strokeWidth="1" />
+								</chart:Palette.entries>
+							</chart:Palette>
+							<chart:Palette seriesName="Line" seriesState="Selected">
+								<chart:Palette.entries>
+									<chart:PaletteEntry strokeColor="#999999" strokeWidth="1" />
+									<chart:PaletteEntry strokeColor="#999999" strokeWidth="1" />
+								</chart:Palette.entries>
+							</chart:Palette> 
+						</chart:RadCartesianChart.palettes>
+					</chart:RadCartesianChart>
+				</GridLayout>
+			</StackLayout>
+		</TabViewItem>
+		<TabViewItem iconSource="res://chart/area/area2">
+			<StackLayout>
+				<StackLayout class="form-header">
+					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
+				</StackLayout>
+				<GridLayout  rows="auto, *">
+					<chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
+						<chart:RadCartesianChart.horizontalAxis>
+							<chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1"/>
+						</chart:RadCartesianChart.horizontalAxis>
+						<chart:RadCartesianChart.verticalAxis>
+							<chart:LinearAxis lineColor="#b0b0b0" lineThickness="1"/>
+						</chart:RadCartesianChart.verticalAxis>
+						<chart:RadCartesianChart.series>
+							<chart:AreaSeries seriesName="Area" categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series"/>
+							<chart:AreaSeries seriesName="Area" categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series"/>
+						</chart:RadCartesianChart.series>
+						<chart:RadCartesianChart.grid>
+							<chart:RadCartesianChartGrid 
+								horizontalLinesVisible="true" 
+								verticalLinesVisible="false" 
+								verticalStripLinesVisible="false"
+								horizontalStripLinesVisible="false"
+								horizontalStrokeColor="#e5e5e5"/>           
+						</chart:RadCartesianChart.grid>
+						<chart:RadCartesianChart.palettes>
+							<chart:Palette seriesName="Area">
+								<chart:Palette.entries>
+									<chart:PaletteEntry android:fillColor="#b2efe6" ios:fillColor="#7fe5faf6" strokeColor="#e7964f" strokeWidth="2"/>
+									<chart:PaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#4f5fe7" strokeWidth="2"/>
+								</chart:Palette.entries>
+							</chart:Palette>
+							<chart:Palette seriesName="Area" seriesState="Selected">
+								<chart:Palette.entries>
+									<chart:PaletteEntry android:fillColor="#b2efe6" ios:fillColor="#7fe5faf6" strokeColor="#026555" strokeWidth="2"/>
+									<chart:PaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#003434" strokeWidth="2"/>
+								</chart:Palette.entries>
+							</chart:Palette>
+						</chart:RadCartesianChart.palettes>
+					</chart:RadCartesianChart>
+				</GridLayout>
+			</StackLayout>
+		</TabViewItem>
+		<TabViewItem iconSource="res://chart/pie/pie2">
+			<StackLayout>
+				<StackLayout class="form-header">
+					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
+				</StackLayout>
+				<GridLayout rows="auto, *">
+					<chart:RadPieChart row="1" selectionMode="Single" margin="20">
+						<chart:RadPieChart.series>
+							<chart:PieSeries seriesName="Pie" showLabels="true" selectionMode="DataPoint" expandRadius="0.1" outerRadiusFactor="0.8" items="{{ pieSource2 }}" valueProperty="Amount" legendLabel="Company">
+								<chart:PieSeries.labelStyle>
+									<chart:PointLabelStyle  margin="-55" textFormat="%3.0f%%" textColor="White" textSize="10"  />
+								</chart:PieSeries.labelStyle>
+							</chart:PieSeries>
+						</chart:RadPieChart.series>
+						
+						<chart:RadPieChart.legend>
+							<chart:RadLegendView position="Top" title="" height="70"/>
+						</chart:RadPieChart.legend>
+						
+						<chart:RadCartesianChart.palettes>
+							<chart:Palette seriesName="Pie">
+								<chart:Palette.entries>
+									<chart:PaletteEntry fillColor="#e7964f" strokeWidth="0" />
+									<chart:PaletteEntry fillColor="#4f5fe7" strokeWidth="0" />
+									<chart:PaletteEntry fillColor="#e7e24f" strokeWidth="0" />
+									<chart:PaletteEntry fillColor="#df4fe7" strokeWidth="0" />
+								</chart:Palette.entries>
+							</chart:Palette>
+							<chart:Palette seriesName="Pie" seriesState="Selected">
+								<chart:Palette.entries>
+									<chart:PaletteEntry fillColor="#e7964f" strokeWidth="2" strokeColor="#999999" />
+									<chart:PaletteEntry fillColor="#4f5fe7" strokeWidth="2" strokeColor="#999999" />
+									<chart:PaletteEntry fillColor="#e7e24f" strokeWidth="2" strokeColor="#999999"/>
+									<chart:PaletteEntry fillColor="#df4fe7" strokeWidth="2" strokeColor="#999999" />
+								</chart:Palette.entries>
+							</chart:Palette>
+						</chart:RadCartesianChart.palettes>
+						
+					</chart:RadPieChart>
+				</GridLayout>
+			</StackLayout>
+		</TabViewItem>
+	</TabView>
+
+</Page>
