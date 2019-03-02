@@ -251,6 +251,20 @@
   background-color: $plum;
 }
 
+.list-banner {
+  font-size: 18;
+  font-weight: bold;
+  font-family: $muli-semibold;
+  background-color: $background-dark;
+  color: $plum-text;
+}
+
+.list-text {
+  font-size: 18;
+  font-family: $muli-semibold;
+  color: $plum-text;
+}
+
 /* Progress */
 
 .progressbar {
@@ -358,6 +372,11 @@
 .fa-icon-medium {
   font-size: 22;
   color: $plum-text-light;
+}
+
+.fa-icon-plum {
+  font-size: 20;
+  color: $plum;
 }
 
 .fa-icon-filter {

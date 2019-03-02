@@ -1,0 +1,40 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <NavigationButton icon="res://menu" 
+			ios:visibility="collapsed"		
+			tap="onDrawerButtonTap">
+		</NavigationButton>
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
+    </ActionBar>
+
+	<GridLayout>
+		<StackLayout class="content">
+			<StackLayout class="form-header">
+				<Label class="lbl h2 m-t-5 m-b-5" text="Settings" />
+			</StackLayout>
+			<ListView items="{{ items }}" separatorColor="transparent" itemTemplateSelector="{{ selectItemTemplate }}" itemTap="{{ onItemTap }}" height="100%">
+				<ListView.itemTemplates>
+					<template key="banner">
+						<Label class="p-15 list-banner" text="{{ text }}" textWrap="true" tap="itemTap" />
+					</template>
+					<template key="standard">
+						<StackLayout orientation="horizontal" class="p-15">
+							<Label text="{{ icon }}" class="fa fa-icon-plum m-r-15" />
+							<Label text="{{ text }}" class="list-text" />
+						</StackLayout>
+					</template>
+				</ListView.itemTemplates>
+			</ListView>
+		</StackLayout>
+	</GridLayout>
+
+</Page>

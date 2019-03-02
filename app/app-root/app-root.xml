@@ -76,7 +76,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Charts' ? ' selected': '') }}"
                         route="charts/charts-page" title="Charts" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf080;" class="fa" />
-                        <Label row="0" col="1" text="Charts" class="plum-text p-r-10" />
+                        <Label row="0" col="1" text="Charts and Tabs" class="plum-text p-r-10" />
                     </GridLayout>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Carousel' ? ' selected': '') }}"
@@ -89,6 +89,12 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         route="audiovideo/audiovideo-page" title="AudioVideo" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf1c7;" class="fa" />
                         <Label row="0" col="1" text="Play Audio/Video" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"
+                        route="settings/settings-page" title="Settings" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf085;" class="fa" />
+                        <Label row="0" col="1" text="Settings" class="plum-text p-r-10" />
                     </GridLayout>
 
                 </StackLayout>

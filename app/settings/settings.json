@@ -1,0 +1,58 @@
+[
+  {
+    "itemType": "banner",
+    "icon": "",
+    "text": "Account"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf2bd",
+    "text": "Profiles"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf017",
+    "text": "History"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf2ba",
+    "text": "Invite Friends"
+  },
+  {
+    "itemType": "banner",
+    "icon": "",
+    "text": "Options"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf0a2",
+    "text": "Notifications"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf09d",
+    "text": "Payment Methods"
+  },
+  {
+    "itemType": "banner",
+    "icon": "",
+    "text": "Other"
+  },
+
+  {
+    "itemType": "standard",
+    "icon": "\uf087",
+    "text": "Feedback"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf29c",
+    "text": "FAQ"
+  },
+  {
+    "itemType": "standard",
+    "icon": "\uf0e3",
+    "text": "Terms of Use"
+  }
+]
