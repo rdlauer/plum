@@ -28,6 +28,9 @@ interface Person {
   reviews: number;
   isFavorite: boolean;
   description: string;
+  climber: boolean;
+  punctual: boolean;
+  reliable: boolean;
 }
 
 export class ListsViewModel extends Observable {

@@ -17,10 +17,10 @@ interface Person {
   reliable: boolean;
 }
 
-export class CardsViewModel extends Observable {
+export class CardListViewModel extends Observable {
   constructor() {
     super();
-    SelectedPageService.getInstance().updateSelectedPage('Cards');
+    SelectedPageService.getInstance().updateSelectedPage('CardList');
   }
 
   people: Array<Person> = require('../lists/people.json');

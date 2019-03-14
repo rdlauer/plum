@@ -16,32 +16,51 @@
 		</ActionItem>
         <Label class="action-bar-title" text="Plum UI Kit for NativeScript"></Label>
     </ActionBar>
+		
+	<ScrollView>
+		<StackLayout>
+			<StackLayout class="form-header" orientation="horizontal">
+				<Label class="fa fa-icon-medium" text="&#xf190;" tap="goBack" />
+				<Label class="lbl h2 m-t-5 m-b-5 m-l-10" text="Detail" tap="goBack" />
+			</StackLayout>
 
-    <StackLayout>
-        <StackLayout class="form-header" orientation="horizontal">
-			<Label class="fa fa-icon-medium" text="&#xf190;" tap="goBack" />
-			<Label class="lbl h2 m-t-5 m-b-5 m-l-10" text="Detail" tap="goBack" />
-		</StackLayout>
-		<StackLayout class="form form-content" orientation="horizontal">
-			<ios>
-				<Image src="{{ imageSrc }}" stretch="aspectFill" height="70" width="70" class="list-avatar" />
-			</ios>
-			<android>
-				<f:FrescoDrawee horizontalAlignment="stretch" height="70" width="70" imageUri="{{ imageSrc }}"  />
-			</android>
-			<Label class="lbl m-l-20 h2" text="{{ name }}" />
-			<Label text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart  m-l-20 h2" />
-		</StackLayout>
-		<StackLayout class="list-card">
-			<StackLayout class="list-info-detail">
-				<StackLayout orientation="horizontal" class="m-t-10 m-b-20">
-					<Label text="{{ rating }}" class="rating m-r-5" />
-					<Label text="&#xf005;" class="fa fa-list-star" />
-					<Label text="{{ ' (' + reviews + ')' }}" class="rating" />
+			<StackLayout class="form form-content" orientation="horizontal">
+				<ios>
+					<Image src="{{ imageSrc }}" stretch="aspectFill" height="70" width="70" class="list-avatar" />
+				</ios>
+				<android>
+					<f:FrescoDrawee horizontalAlignment="stretch" height="70" width="70" imageUri="{{ imageSrc }}"  />
+				</android>
+				<Label class="lbl m-l-20 h2" text="{{ name }}" />
+				<Label text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart  m-l-20 h2" />
+			</StackLayout>
+			<StackLayout class="list-card">
+				<StackLayout class="list-info-detail">
+					<StackLayout orientation="horizontal" class="m-t-10 m-b-20">
+						<Label text="&#xf005;" class="fa fa-list-star-large" visibility="{{ rating >= 0.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf006;" class="fa fa-list-star-large" visibility="{{ rating < 0.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf005;" class="fa fa-list-star-large" visibility="{{ rating >= 1.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf006;" class="fa fa-list-star-large" visibility="{{ rating < 1.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf005;" class="fa fa-list-star-large" visibility="{{ rating >= 2.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf006;" class="fa fa-list-star-large" visibility="{{ rating < 2.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf005;" class="fa fa-list-star-large" visibility="{{ rating >= 3.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf006;" class="fa fa-list-star-large" visibility="{{ rating < 3.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf005;" class="fa fa-list-star-large" visibility="{{ rating >= 4.5 ? 'visible' : 'collapse' }}" />
+						<Label text="&#xf006;" class="fa fa-list-star-large" visibility="{{ rating < 4.5 ? 'visible' : 'collapse' }}" />
+						<Label text="{{ ' (' + reviews + ' reviews)' }}" class="rating" />
+					</StackLayout>
+					<Label text="{{ '$' + payRate + '/hr · ' + title }}" class="title m-b-20" />
+					<Label text="{{ description }}" class="list-info-desc-detail" textWrap="true" />
 				</StackLayout>
-				<Label text="{{ '$' + payRate + '/hr · ' + title }}" class="title m-b-20" />
-				<Label text="{{ description }}" class="list-info-desc-detail" textWrap="true" />
+			</StackLayout>
+			<StackLayout class="list-card m-t-10">
+				<Label text="Attributes" class="rating bold p-l-10" />
+				<StackLayout orientation="horizontal">
+					<Image src="~/images/badge-climber.png" stretch="none" visibility="{{ climber ? 'visible' : 'collapse' }}" />
+					<Image src="~/images/badge-punctual.png" stretch="none" visibility="{{ punctual ? 'visible' : 'collapse' }}" />
+					<Image src="~/images/badge-reliable.png" stretch="none" visibility="{{ reliable ? 'visible' : 'collapse' }}" />
+				</StackLayout>
 			</StackLayout>
 		</StackLayout>
-    </StackLayout>
+	</ScrollView>
 </Page>

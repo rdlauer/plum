@@ -52,11 +52,37 @@
   width: 155;
 }
 
+.card-list {
+  background-color: white;
+  width: 95%;
+}
+
 .card-content {
   padding: 20;
   font-size: 14;
   color: $plum-text;
   font-family: $muli-semibold;
+}
+
+.card-content-list {
+  font-size: 14;
+  color: $plum-text;
+  font-family: $muli-semibold;
+}
+
+.card-heading {
+  background-color: $plum;
+  width: 100%;
+  height: 40;
+}
+
+.card-heading label {
+  color: white;
+  font-family: $muli-semibold;
+  font-size: 18;
+  font-weight: bold;
+  margin-top: 8;
+  margin-left: 5;
 }
 
 /* Custom Modal Dialog */
@@ -308,6 +334,10 @@
 
 /* Misc */
 
+.bold {
+  font-weight: bold;
+}
+
 .logo {
   margin-top: 60;
   margin-bottom: 30;
@@ -386,6 +416,11 @@
 
 .fa-list-star {
   color: #ffa300;
+}
+
+.fa-list-star-large {
+  color: #ffa300;
+  font-size: 28;
 }
 
 .fa-list-heart {

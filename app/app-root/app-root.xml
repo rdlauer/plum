@@ -41,10 +41,22 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="1" text="Maps" class="plum-text p-r-10" />
                     </GridLayout>
 
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Cards' ? ' selected': '') }}"
+                        route="cards/cards-page" title="Cards" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf2c3;" class="fa" />
+                        <Label row="0" col="1" text="Cards" class="plum-text p-r-10" />
+                    </GridLayout>
+
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Lists' ? ' selected': '') }}"
                         route="lists/lists-page" title="Lists" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf03a;" class="fa" />
                         <Label row="0" col="1" text="Master/Detail List" class="plum-text p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'CardList' ? ' selected': '') }}"
+                        route="cardlist/cardlist-page" title="Card List" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf00b;" class="fa" />
+                        <Label row="0" col="1" text="Card List" class="plum-text p-r-10" />
                     </GridLayout>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Calendar' ? ' selected': '') }}"
@@ -57,12 +69,6 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         route="notes/notes-page" title="Notes" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf24a;" class="fa" />
                         <Label row="0" col="1" text="Notes" class="plum-text p-r-10" />
-                    </GridLayout>
-
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Cards' ? ' selected': '') }}"
-                        route="cards/cards-page" title="Cards" tap="onNavigationItemTap">
-                        <Label row="0" col="0" text="&#xf2c3;" class="fa" />
-                        <Label row="0" col="1" text="Cards" class="plum-text p-r-10" />
                     </GridLayout>
 
                     <ios>

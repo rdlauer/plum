@@ -8,7 +8,10 @@
     "rating": 4.5,
     "reviews": 20,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": true,
+    "reliable": true
   },
   {
     "id": 2,
@@ -19,7 +22,10 @@
     "rating": 3.9,
     "reviews": 46,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": false,
+    "reliable": true
   },
   {
     "id": 3,
@@ -30,7 +36,10 @@
     "rating": 4.7,
     "reviews": 30,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": true,
+    "reliable": false
   },
   {
     "id": 4,
@@ -41,7 +50,10 @@
     "rating": 4.9,
     "reviews": 98,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": false,
+    "punctual": false,
+    "reliable": true
   },
   {
     "id": 5,
@@ -52,7 +64,10 @@
     "rating": 4.9,
     "reviews": 47,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": true,
+    "reliable": false
   },
   {
     "id": 6,
@@ -63,7 +78,10 @@
     "rating": 2.5,
     "reviews": 7,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": false,
+    "reliable": true
   },
   {
     "id": 7,
@@ -74,7 +92,10 @@
     "rating": 4.2,
     "reviews": 90,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": true,
+    "reliable": true
   },
   {
     "id": 8,
@@ -85,7 +106,10 @@
     "rating": 4.7,
     "reviews": 25,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": false,
+    "punctual": false,
+    "reliable": true
   },
   {
     "id": 9,
@@ -96,7 +120,10 @@
     "rating": 2.7,
     "reviews": 3,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": false,
+    "reliable": false
   },
   {
     "id": 10,
@@ -107,7 +134,10 @@
     "rating": 4.2,
     "reviews": 18,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": false,
+    "reliable": true
   },
   {
     "id": 11,
@@ -118,7 +148,10 @@
     "rating": 4.9,
     "reviews": 54,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": false,
+    "punctual": false,
+    "reliable": true
   },
   {
     "id": 12,
@@ -129,6 +162,9 @@
     "rating": 3.2,
     "reviews": 10,
     "isFavorite": false,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "climber": true,
+    "punctual": true,
+    "reliable": false
   }
 ]

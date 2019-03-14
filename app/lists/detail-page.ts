@@ -14,6 +14,9 @@ interface Person {
   reviews: number;
   isFavorite: boolean;
   description: string;
+  climber: boolean;
+  punctual: boolean;
+  reliable: boolean;
 }
 
 export function onNavigatingTo(args: NavigatedData) {
