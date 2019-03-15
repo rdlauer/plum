@@ -27,13 +27,13 @@
     </ActionBar>
 
     <GridLayout>
-        <StackLayout class="content">
+        <GridLayout rows="auto, *" class="content">
 			<StackLayout class="form-header">
 				<Label class="lbl h2 m-t-5 m-b-5" text="Notes" />
 			</StackLayout>
-			<StackLayout class="form">
+			<GridLayout row="1" rows="auto, *" class="form">
 				<StackLayout class="list-divider-dark" height="10"></StackLayout>
-				<lv:RadListView id="list-view" items="{{ notes }}" height="100%"    
+				<lv:RadListView row="1" id="list-view" items="{{ notes }}" height="100%"    
 					selectionBehavior="None" 
 					itemSwipeProgressEnded="{{ onSwipeItemFinished }}"
 					itemSwipeProgressStarted="{{ onSwipeItemStarted }}" 
@@ -67,8 +67,8 @@
 						</GridLayout>
 					</lv:RadListView.itemSwipeTemplate>
 				</lv:RadListView>
-			</StackLayout>
-		</StackLayout>
+			</GridLayout>
+		</GridLayout>
 		<AbsoluteLayout class="dialog-wrapper">
 			<StackLayout class="dialog">
 				<Label text="&#xf055;" class="fa fa-icon-large m-b-10 text-center" />

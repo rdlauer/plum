@@ -18,11 +18,11 @@
     </ActionBar>
 
 	<GridLayout>
-		<StackLayout class="content">
+		<GridLayout rows="auto, *" class="content">
 			<StackLayout class="form-header">
 				<Label class="lbl h2 m-t-5 m-b-5" text="Let us know more about you" />
 			</StackLayout>
-			<ScrollView>
+			<ScrollView row="1">
 				<StackLayout class="form form-content">
 					<Label text="&#xf2be;" class="fa fa-icon-large text-center anim-pulse" 
 						visibility="{{ isSingleMode ? 'collapsed' : 'visible' }}" />
@@ -50,7 +50,7 @@
 					<Button class="btn btn-primary" text="Complete Profile" tap="{{ showDialog }}" />
 				</StackLayout>
 			</ScrollView>
-		</StackLayout>
+		</GridLayout>
 		<AbsoluteLayout class="dialog-wrapper">
 			<StackLayout class="dialog">
 				<Label text="&#xf058;" class="fa fa-icon-large m-b-10 text-center" />

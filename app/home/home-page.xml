@@ -21,6 +21,6 @@
         <Label class="lbl h1 m-x-auto m-t-30" text="Welcome to Plum!" />
 		<Label class="lbl m-x-auto p-t-20 p-b-30" text="Open the drawer to access UI kit views." />
 		<Button class="btn btn-primary anim-pulse-delay1" text="Login" onTap="{{ login }}" />
-		<Button class="btn btn-outline  anim-pulse-delay2" text="Create an account" onTap="{{ signup }}" />
+		<Button class="btn btn-outline anim-pulse-delay2" text="Create an account" onTap="{{ signup }}" />
     </StackLayout>
 </Page>

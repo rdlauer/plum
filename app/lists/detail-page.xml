@@ -1,8 +1,7 @@
 <Page
     class="page"
     navigatingTo="onNavigatingTo"
-    xmlns="http://schemas.nativescript.org/tns.xsd"
-	xmlns:f="nativescript-fresco">
+    xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
         <NavigationButton icon="res://menu"
@@ -25,12 +24,7 @@
 			</StackLayout>
 
 			<StackLayout class="form form-content" orientation="horizontal">
-				<ios>
-					<Image src="{{ imageSrc }}" stretch="aspectFill" height="70" width="70" class="list-avatar" />
-				</ios>
-				<android>
-					<f:FrescoDrawee horizontalAlignment="stretch" height="70" width="70" imageUri="{{ imageSrc }}"  />
-				</android>
+				<Image src="{{ imageSrc }}" stretch="aspectFill" height="70" width="70" class="list-avatar" />
 				<Label class="lbl m-l-20 h2" text="{{ name }}" />
 				<Label text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart  m-l-20 h2" />
 			</StackLayout>

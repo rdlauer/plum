@@ -13,12 +13,12 @@ export class HomeViewModel extends Observable {
   login(args: EventData) {
     const button: Button = <Button>args.object;
     const page: Page = button.page;
-    page.frame.navigate('./login/login-page');
+    page.frame.navigate('/login/login-page');
   }
 
   signup(args: EventData) {
     const button: Button = <Button>args.object;
     const page: Page = button.page;
-    page.frame.navigate('./sign-up/sign-up-page');
+    page.frame.navigate('/sign-up/sign-up-page');
   }
 }

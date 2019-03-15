@@ -3,7 +3,6 @@
     navigatingTo="onNavigatingTo"
     xmlns="http://schemas.nativescript.org/tns.xsd"
 	xmlns:lv="nativescript-ui-listview"
-	xmlns:f="nativescript-fresco"
 	xmlns:dd="nativescript-drop-down">
 
     <ActionBar class="action-bar">
@@ -30,28 +29,23 @@
     </ActionBar>
 
     <GridLayout>
-        <StackLayout class="content">
+        <GridLayout rows="auto, *" class="content">
 			<StackLayout class="form-header">
 				<Label class="lbl h2 m-t-5 m-b-5" text="Search and filter lists of data" />
 			</StackLayout>
-			<StackLayout class="form form-content">
+			<GridLayout row="1" rows="auto, *" class="form form-content">
 				<GridLayout rows="auto" columns="*, auto">
 					<SearchBar hint="Search..." text="{{ searchPhrase }}" loaded="onSearchLoaded"
 						class="search-bar m-b-10" submit="{{ onSearchSubmit }}" 
 						clear="{{ clear }}" row="0" col="0" />
 					<Label text="&#xf1de;" class="fa fa-icon-filter" row="0" col="1" tap="{{ showDialog }}" />
 				</GridLayout>
-				<lv:RadListView id="list-view" items="{{ people }}" height="100%">
+				<lv:RadListView row="1" id="list-view" items="{{ people }}" height="100%">
 					<lv:RadListView.itemTemplate>
 						<StackLayout>
 							<StackLayout class="list-card m-x-auto" orientation="horizontal">
 								<GridLayout rows="auto, auto" columns="60, 260" tap="{{ $parents['RadListView'].itemDetail }}">
-									<ios>
-										<Image src="{{ imageSrc }}" stretch="aspectFill" height="50" width="50" class="list-avatar" row="0" col="0" />
-									</ios>
-									<android>
-										<f:FrescoDrawee horizontalAlignment="stretch" height="50" width="50" imageUri="{{ imageSrc }}" row="0" col="0"  />
-									</android>
+									<Image src="{{ imageSrc }}" stretch="aspectFill" height="50" width="50" class="list-avatar" row="0" col="0" />
 									<StackLayout class="list-info" row="0" col="1">
 										<Label text="{{ name }}" class="name" />
 										<StackLayout orientation="horizontal">
@@ -69,8 +63,8 @@
 						</StackLayout>
 					</lv:RadListView.itemTemplate>
 				</lv:RadListView>
-			</StackLayout>
-		</StackLayout>
+			</GridLayout>
+		</GridLayout>
 		<AbsoluteLayout class="dialog-wrapper">
 			<StackLayout class="dialog">
 				<Label text="&#xf1de;" class="fa fa-icon-large m-b-10 text-center" />
