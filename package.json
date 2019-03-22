@@ -15,13 +15,13 @@
     "lint": "tslint \"app/**/*.ts\""
   },
   "dependencies": {
-    "nativescript-ar": "^0.6.2",
+    "nativescript-ar": "^0.7.0",
     "nativescript-audio": "^5.0.1",
     "nativescript-cardview": "^3.1.1",
     "nativescript-carousel": "^4.1.0",
     "nativescript-checkbox": "^3.0.3",
-    "nativescript-drop-down": "^4.0.1",
-    "nativescript-flashlight": "^2.0.0",
+    "nativescript-drop-down": "^5.0.0",
+    "nativescript-flashlight": "^2.0.1",
     "nativescript-geolocation": "^5.0.0",
     "nativescript-imagepicker": "^6.1.2",
     "nativescript-iqkeyboardmanager": "^1.4.0",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "nativescript-dev-sass": "~1.7.0",
     "nativescript-dev-typescript": "~0.9.0",
-    "nativescript-dev-webpack": "~0.20.2",
+    "nativescript-dev-webpack": "~0.20.3",
     "tslint": "~5.14.0"
   },
   "readme": "NativeScript Application"

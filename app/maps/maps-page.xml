@@ -23,11 +23,11 @@
 		</StackLayout>
 		<ScrollView row="1" orientation="horizontal" class="form-content">
 			<StackLayout class="form" orientation="horizontal">
-				<Button class="btn btn-outline" text="Add markers" tap="{{ doAddMarkers }}" />
-				<Button class="btn btn-outline" text="Remove markers" tap="{{ doRemoveMarkers }}" />
-				<Button class="btn btn-outline" text="Zoom in" tap="{{ doZoomIn }}" />
-				<Button class="btn btn-outline" text="Zoom out" tap="{{ doZoomOut }}" />
-				<Button class="btn btn-outline" text="Find me" tap="{{ doFindMe }}" />
+				<Button class="btn btn-outline" text=" Add markers " tap="{{ doAddMarkers }}" />
+				<Button class="btn btn-outline" text=" Remove markers " tap="{{ doRemoveMarkers }}" />
+				<Button class="btn btn-outline" text=" Zoom in " tap="{{ doZoomIn }}" />
+				<Button class="btn btn-outline" text=" Zoom out " tap="{{ doZoomOut }}" />
+				<Button class="btn btn-outline" text=" Find me " tap="{{ doFindMe }}" />
 			</StackLayout>
 		</ScrollView>
 		<ContentView row="2" height="100%" width="100%">

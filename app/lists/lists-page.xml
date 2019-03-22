@@ -18,7 +18,9 @@
 			</ActionItem>
 			<ActionItem ios.position="right">
 				<ActionItem.actionView>
-					<StackLayout orientation="horizontal" paddingTop="-6" paddingRight="-10">
+					<StackLayout orientation="horizontal" 
+					ios:paddingTop="-6" ios:paddingRight="-10"
+					android:marginTop="10" android:marginRight="-15">
 						<Label id="heartLabel" text="0" class="plum-text ab-heart-label" />
 						<Label text="&#xf004;" class="fa ab-fa-list-heart" />
 					</StackLayout>

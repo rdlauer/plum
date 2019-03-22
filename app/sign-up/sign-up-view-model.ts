@@ -71,7 +71,7 @@ export class SignUpViewModel extends Observable {
   showModal() {
     const page = topmost().currentPage;
     page.showModal(
-      '/modal/modal-page',
+      'modal/modal-page',
       {
         // Pass any context you want to use in the modal
         context: 'Some data',

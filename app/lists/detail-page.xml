@@ -25,7 +25,7 @@
 
 			<StackLayout class="form form-content" orientation="horizontal">
 				<Image src="{{ imageSrc }}" stretch="aspectFill" height="70" width="70" class="list-avatar" />
-				<Label class="lbl m-l-20 h2" text="{{ name }}" />
+				<Label class="lbl m-l-20 h2" text="{{ name }}" android:marginTop="15" />
 				<Label text="{{ isFavorite ? '&#xf004;' : '&#xf08a;' }}" class="fa fa-list-heart  m-l-20 h2" />
 			</StackLayout>
 			<StackLayout class="list-card">
@@ -48,11 +48,11 @@
 				</StackLayout>
 			</StackLayout>
 			<StackLayout class="list-card m-t-10">
-				<Label text="Attributes" class="rating bold p-l-10" />
+				<Label text="Attributes" class="list-info-desc-detail bold p-l-10" />
 				<StackLayout orientation="horizontal">
-					<Image src="~/images/badge-climber.png" stretch="none" visibility="{{ climber ? 'visible' : 'collapse' }}" />
-					<Image src="~/images/badge-punctual.png" stretch="none" visibility="{{ punctual ? 'visible' : 'collapse' }}" />
-					<Image src="~/images/badge-reliable.png" stretch="none" visibility="{{ reliable ? 'visible' : 'collapse' }}" />
+					<Image src="~/images/badge-climber.png" stretch="aspectFill" visibility="{{ climber ? 'visible' : 'collapse' }}" width="30%" />
+					<Image src="~/images/badge-punctual.png" stretch="aspectFill" visibility="{{ punctual ? 'visible' : 'collapse' }}" width="30%" />
+					<Image src="~/images/badge-reliable.png" stretch="aspectFill" visibility="{{ reliable ? 'visible' : 'collapse' }}" width="30%" />
 				</StackLayout>
 			</StackLayout>
 		</StackLayout>

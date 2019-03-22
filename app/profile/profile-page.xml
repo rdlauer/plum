@@ -39,14 +39,14 @@
 					<DatePicker class="form-input m-t-10" returnKeyType="next" />
 					<Label class="lbl lbl-light m-t-20" text="Gender" />
 					<StackLayout orientation="horizontal" class="m-b-20" height="50">
-						<Button class="btn btn-outline" text="Male" id="genderMale"
-							tap="{{ genderMale }}" width="40%" />
+						<Button class="btn btn-profile" text="Male" id="genderMale"
+							tap="{{ genderMale }}" width="40%" android:height="90%" />
 						<Button class="btn btn-outline" text="Female" id="genderFemale" 
-							tap="{{ genderFemale }}" width="40%" />
+							tap="{{ genderFemale }}" width="40%" android:height="90%" />
 					</StackLayout>
 					<CheckBox:CheckBox text=" I would like to get annoying notifications" 
-						checked="true" fillColor="#4f5fe7" onCheckColor="white" 
-						color="#2e2e2e"  boxType="circle" class="m-b-20" />
+						checked="false" fillColor="#4f5fe7" onCheckColor="white" 
+						color="#2e2e2e" boxType="circle" class="m-b-20" />
 					<Button class="btn btn-primary" text="Complete Profile" tap="{{ showDialog }}" />
 				</StackLayout>
 			</ScrollView>
