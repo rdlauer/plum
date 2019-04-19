@@ -24,6 +24,24 @@ Plum uses the following NativeScript plugins (find them all at [market.nativescr
 - nativescript-videoplayer
 - nativescript-taptic-engine
 
+## iOS + Android Plum Screens
+
+Here are a handful of example screens you'll find in the Plum UI kit:
+
+![plum side drawer](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-drawer.png)
+
+![plum master detail](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-masterdetail.png)
+
+![plum account profile](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-account.png)
+
+![plum charts](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-chart.png)
+
+![plum list](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-list.png)
+
+![plum maps](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-maps.png)
+
+![plum audio video](https://raw.githubusercontent.com/rdlauer/articles/master/nativescript/plum/plum-audio-video.png)
+
 ## License
 
 Apache 2.0
