@@ -51,7 +51,7 @@
 								<Label text="{{ title }}" class="note-title" />
 								<Label text="{{ text }}" class="note-text m-t-5" textWrap="true" />
 							</StackLayout>
-							<lv:ReorderHandle backgroundColor="white" col="1" verticalAlignment="top">
+							<lv:ReorderHandle backgroundColor="white" col="1" verticalAlignment="top" height="100">
 								<Label text="&#xf0c9;" class="fa" padding="10" />
 							</lv:ReorderHandle>
 						</GridLayout>
@@ -59,10 +59,10 @@
 					<lv:RadListView.itemSwipeTemplate>
 						<GridLayout columns="auto, *, auto">
 							<StackLayout col="0" class="list-btn list-edit-btn" tap="onLeftSwipe" id="swipe-edit">
-								<Label text="Edit" />
+								<Label text="Edit" paddingTop="35" />
 							</StackLayout>
 							<StackLayout col="2" class="list-btn list-delete-btn" tap="onRightSwipe" id="swipe-delete">
-								<Label text="Delete" />
+								<Label text="Delete" paddingTop="35" />
 							</StackLayout>
 						</GridLayout>
 					</lv:RadListView.itemSwipeTemplate>

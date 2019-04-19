@@ -18,7 +18,7 @@
     </ActionBar>
 
 	<TabView id="tabViewContainer" androidTabsPosition="bottom" class="tab-item">
-		<TabViewItem iconSource="res://chart/bar/bar2">
+		<TabViewItem ios:iconSource="res://chart/bar/bar2" android:iconSource="res://bar2">
 			<StackLayout>
 				<StackLayout class="form-header">
 					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
@@ -61,7 +61,7 @@
 				</GridLayout>
 			</StackLayout>
 		</TabViewItem>
-		<TabViewItem iconSource="res://chart/line/line2">
+		<TabViewItem ios:iconSource="res://chart/line/line2" android:iconSource="res://line2">
 			<StackLayout>
 				<StackLayout class="form-header">
 					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
@@ -105,7 +105,7 @@
 				</GridLayout>
 			</StackLayout>
 		</TabViewItem>
-		<TabViewItem iconSource="res://chart/area/area2">
+		<TabViewItem ios:iconSource="res://chart/area/area2" android:iconSource="res://area2">
 			<StackLayout>
 				<StackLayout class="form-header">
 					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
@@ -148,7 +148,7 @@
 				</GridLayout>
 			</StackLayout>
 		</TabViewItem>
-		<TabViewItem iconSource="res://chart/pie/pie2">
+		<TabViewItem ios:iconSource="res://chart/pie/pie2"  android:iconSource="res://pie2">
 			<StackLayout>
 				<StackLayout class="form-header">
 					<Label class="lbl h2 m-t-5 m-b-5" text="Chart Examples" />
