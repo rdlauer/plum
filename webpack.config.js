@@ -5,9 +5,10 @@ const nsWebpack = require("nativescript-dev-webpack");
 const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { NativeScriptWorkerPlugin } = require("nativescript-worker-loader/NativeScriptWorkerPlugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const hashSalt = Date.now().toString();
 
 module.exports = env => {
@@ -41,20 +42,27 @@ module.exports = env => {
         uglify, // --env.uglify
         report, // --env.report
         sourceMap, // --env.sourceMap
+        hiddenSourceMap, // --env.hiddenSourceMap
         hmr, // --env.hmr,
         unitTesting, // --env.unitTesting
     } = env;
+    const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
 
-    const entryModule = nsWebpack.getEntryModule(appFullPath);
+    const entryModule = nsWebpack.getEntryModule(appFullPath, platform);
     const entryPath = `.${sep}${entryModule}.ts`;
     const entries = { bundle: entryPath };
+
+    const tsConfigPath = resolve(projectRoot, "tsconfig.tns.json");
+
     if (platform === "ios") {
         entries["tns_modules/tns-core-modules/inspector_modules"] = "inspector_modules.js";
     };
+
+    let sourceMapFilename = nsWebpack.getSourceMapFilename(hiddenSourceMap, __dirname, dist);
 
     const config = {
         mode: uglify ? "production" : "development",
@@ -72,6 +80,7 @@ module.exports = env => {
         output: {
             pathinfo: false,
             path: dist,
+            sourceMapFilename,
             libraryTarget: "commonjs2",
             filename: "[name].js",
             globalObject: "global",
@@ -104,7 +113,7 @@ module.exports = env => {
             "fs": "empty",
             "__dirname": false,
         },
-        devtool: sourceMap ? "inline-source-map" : "none",
+        devtool: hiddenSourceMap ? "hidden-source-map" : (sourceMap ? "inline-source-map" : "none"),
         optimization: {
             runtimeChunk: "single",
             splitChunks: {
@@ -124,12 +133,14 @@ module.exports = env => {
             },
             minimize: !!uglify,
             minimizer: [
-                new UglifyJsPlugin({
+                new TerserPlugin({
                     parallel: true,
                     cache: true,
-                    uglifyOptions: {
+                    sourceMap: isAnySourceMapEnabled,
+                    terserOptions: {
                         output: {
                             comments: false,
+                            semicolons: !isAnySourceMapEnabled
                         },
                         compress: {
                             // The Android SBG has problems parsing the output
@@ -183,13 +194,13 @@ module.exports = env => {
 
                 {
                     test: /\.css$/,
-                    use: { loader: "css-loader", options: { minimize: false, url: false } }
+                    use: { loader: "css-loader", options: { url: false } }
                 },
 
                 {
                     test: /\.scss$/,
                     use: [
-                        { loader: "css-loader", options: { minimize: false, url: false } },
+                        { loader: "css-loader", options: { url: false } },
                         "sass-loader"
                     ]
                 },
@@ -199,10 +210,11 @@ module.exports = env => {
                     use: {
                         loader: "ts-loader",
                         options: {
-                            configFile: "tsconfig.tns.json",
+                            configFile: tsConfigPath,
+                            transpileOnly: !!hmr,
                             allowTsInNodeModules: true,
                             compilerOptions: {
-                                sourceMap
+                                sourceMap: isAnySourceMapEnabled
                             }
                         },
                     }
@@ -282,6 +294,12 @@ module.exports = env => {
 
     if (hmr) {
         config.plugins.push(new webpack.HotModuleReplacementPlugin());
+
+        // With HMR ts-loader should run in `transpileOnly` mode,
+        // so assure type-checking with fork-ts-checker-webpack-plugin
+        config.plugins.push(new ForkTsCheckerWebpackPlugin({
+            tsconfig: tsConfigPath
+        }));
     }
 
 
