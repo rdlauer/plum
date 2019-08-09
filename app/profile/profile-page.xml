@@ -2,7 +2,7 @@
     class="page"
     navigatingTo="onNavigatingTo"  
     xmlns="http://schemas.nativescript.org/tns.xsd"
-	xmlns:CheckBox="nativescript-checkbox">
+	xmlns:CheckBox="@nstudio/nativescript-checkbox">
 
     <ActionBar class="action-bar">
         <NavigationButton icon="res://menu" 

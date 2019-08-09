@@ -156,9 +156,7 @@ export function trackingFaceDetected(args: ARTrackingFaceEventData): void {
   }
 }
 
-export function trackingImageDetected(
-  args: ARTrackingImageDetectedEventData
-): void {
+export function trackingImageDetected(args: ARTrackingImageDetectedEventData): void {
   console.log('Tracked image detected (name).. ' + args.imageName);
 
   if (args.imageName === 'nativescripting') {
@@ -207,7 +205,8 @@ export function trackingImageDetected(
     args.imageName === 'nativescript nl' ||
     args.imageName === 'nativescripting alt' ||
     args.imageName === 'hertogjan' ||
-    args.imageName === 'latrappe'
+    args.imageName === 'latrappe' ||
+    args.imageName === 'thatconference'
   ) {
     console.log('Adding box');
     args.imageTrackingActions
@@ -222,19 +221,13 @@ export function trackingImageDetected(
         materials: [
           {
             diffuse: {
-              contents:
-                'Assets.scnassets/Materials/tnsgranite/tnsgranite-diffuse.png',
+              contents: 'Assets.scnassets/Materials/tnsgranite/tnsgranite-diffuse.png',
               wrapMode: 'ClampToBorder'
             }
           }
         ],
         onTap: (interaction: ARNodeInteraction) => {
-          console.log(
-            'box tapped: ' +
-              interaction.node.id +
-              ' at ' +
-              interaction.touchPosition
-          );
+          console.log('box tapped: ' + interaction.node.id + ' at ' + interaction.touchPosition);
           // let's rotate the box 5 degrees to the right
           interaction.node.rotateBy({
             x: 0,
@@ -243,12 +236,7 @@ export function trackingImageDetected(
           });
         },
         onLongPress: (interaction: ARNodeInteraction) => {
-          console.log(
-            'box longpressed: ' +
-              interaction.node.id +
-              ' at ' +
-              interaction.touchPosition
-          );
+          console.log('box longpressed: ' + interaction.node.id + ' at ' + interaction.touchPosition);
           // let's rotate the box 5 degrees to the left
           interaction.node.rotateBy({
             x: 0,
@@ -269,25 +257,34 @@ export function planeTapped(args: ARPlaneTappedEventData): void {
   console.log('Plane tapped @ x coordinate: ' + args.position.x);
 
   args.object.addModel({
-    name: 'Models.scnassets/Car.dae',
+    name: 'Models.scnassets/Ball.dae',
+    //name: 'Models.scnassets/Campfire/campfire_v2.dae',
     position: {
-      x: 0,
-      y: 0,
-      z: -0.5
+      x: args.position.x,
+      y: args.position.y,
+      z: args.position.z - 0.5
     },
     rotation: {
       x: 0,
-      y: 180, // face towards camera
+      y: 0, // 180 = face towards camera
       z: 0
     },
-    scale: 0.1,
+    scale: 0.5,
+    mass: 0,
     onTap: (interaction: ARNodeInteraction) => {
       console.log('tapped model id: ' + interaction.node.id);
       console.log('tapped model position: ' + interaction.node.position);
       console.log('tapped model: ' + JSON.stringify(interaction.node));
+      interaction.node.rotateBy({
+        x: args.position.x,
+        y: args.position.y,
+        z: args.position.z - 5
+      });
     },
-    onLongPress: (interaction: ARNodeInteraction) =>
-      console.log('model longpressed: ' + interaction.node.id)
+    onLongPress: (interaction: ARNodeInteraction) => {
+      console.log('model longpressed: ' + interaction.node.id);
+      interaction.node.remove();
+    }
   });
 
   /*
@@ -332,7 +329,5 @@ export function planeTapped(args: ARPlaneTappedEventData): void {
 }
 
 export function sceneTapped(args: ARSceneTappedEventData): void {
-  console.log(
-    `Scene tapped @ x / y coordinate: ${args.position.x} / ${args.position.y}`
-  );
+  console.log(`Scene tapped @ x / y coordinate: ${args.position.x} / ${args.position.y}`);
 }

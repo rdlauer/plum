@@ -9,3 +9,4 @@ app/keys.*
 hooks/
 app/**/google-services.json
 app/**/GoogleService-Info.plist
+.DS_Store

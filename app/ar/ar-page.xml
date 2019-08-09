@@ -33,7 +33,7 @@
         trackingFaceDetected="trackingFaceDetected"
         debugLevel="FEATURE_POINTS"
         planeMaterial="{{ planeMaterial }}"
-        planeOpacity="0.25"
+        planeOpacity="0.50"
         detectPlanes="true"
         showStatistics="true"
         arLoaded="arLoaded"
