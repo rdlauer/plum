@@ -39,7 +39,7 @@
   "devDependencies": {
     "nativescript-dev-webpack": "1.0.3",
     "tslint": "~5.18.0",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.1",
     "typescript": "3.5.3"
   },
   "readme": "NativeScript Application"
